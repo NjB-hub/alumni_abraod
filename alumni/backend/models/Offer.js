@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 
 const offerSchema = mongoose.Schema({
-  Entreprise: { type: String, required: true },
+  Enterprise: { type: String, required: true },
   post_id: { type: Schema.Types.ObjectId, ref: Post, default:null },
 });
 

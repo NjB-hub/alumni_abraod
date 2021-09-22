@@ -6,6 +6,7 @@ const Schema = mongoose.Schema;
 const profileSchema = mongoose.Schema({
   name: {type: String, required: true},
   surname: {type: String, required: true},
+  gender: {type: String, required: true},
   phone: {type: String, required: true},
   location: {type: String, required: true},
   photo:
