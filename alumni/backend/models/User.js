@@ -9,7 +9,7 @@ const userSchema = mongoose.Schema({
   IsAdmin: { type: Boolean, default: false }, 
 });
 
-  userSchema.pre('save', async function(next){
+  /*userSchema.pre('save', async function(next){
       try{
           const salt = await bcrypt.genSalt(10);
           const hashedPassword = await bcrypt.hash(this.password, salt);
@@ -18,9 +18,6 @@ const userSchema = mongoose.Schema({
       } catch(error){
           next(error);
       }
-  });
-
- 
-  
+  });*/
 
 module.exports = mongoose.model('User', userSchema);

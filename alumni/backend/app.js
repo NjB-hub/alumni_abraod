@@ -1,32 +1,22 @@
 const express = require('express');
-
-const app = express();
-
+const bodyParser = require('body-parser')
 const mongoose = require('mongoose');
+
+const userRoutes = require('./routes/user')
 
 mongoose.connect('mongodb://localhost:27017/alumni',
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))
   .catch(() => console.log('Connexion à MongoDB échouée !'));
-app.use((req, res, next) => {
-  console.log('Requête reçue !');
-  next();
-});
 
+const app = express();
 
-app.use((req, res, next) => {
-  res.status(201);
-  next();
-});
+//gestion de l'authentification des requêtes
 
-app.use((req, res, next) => {
-  res.json({ message: 'Votre requête a bien été reçue !' });
-  next();
-});
+app.use(bodyParser.json());
 
-app.use((req, res, next) => {
-  console.log('Réponse envoyée avec succès !');
-});
+//définition de l'API
+app.use('/enspy_alumni_api/auth', userRoutes);
 
 module.exports = app;
