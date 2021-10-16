@@ -1,0 +1,36 @@
+@import "../../styles.scss";
+@media screen and (max-width: 800px) {
+    .hidden-sm{
+      display: none;
+    }
+    nav {
+        a{
+            float: none;
+            display: flex;
+        }
+        &--right{
+            display: flex;
+        }
+    }
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: $c-primary;
+    justify-content: space-between;
+    height: 5em;
+    &--right{
+        display: flex;
+        align-items: center;
+    }
+    a {
+        text-align: center;
+        padding: 12px;
+        color: white;
+        text-decoration: none;
+        font-size: 17px;
+    }
+    
+  }
