@@ -1,13 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 $c-primary: rgb(5, 19, 67);
-$paddingBtn : 1em;
-$radiusBtn: 0.1em;
+$paddingBtn : 0.5em;
+$radiusBtn: 0.3em;
 /* Fonts */
 .bg{
     &--primary{
         background-color: $c-primary;
     }
 }
+
 
 /* Buttons */
 .btn{
@@ -17,11 +18,14 @@ $radiusBtn: 0.1em;
         color: white;
         padding: $paddingBtn;
         border-radius: $radiusBtn;
+        border: 1px solid $c-primary ;
         
     }
     &--outline-primary{
+        border-radius: $radiusBtn;
         background: transparent;
         color: $c-primary;
+        padding: $paddingBtn;
         border: 2px solid $c-primary ;
         &.btn--disabled{
             border: 2px solid grey;

@@ -1,18 +1,30 @@
 @import "../../../styles.scss";
 .row{
     align-items: center;
+    
 }
-
 .form{
-    border: 1px solid $c-primary;
+    height: 80vh;
     background-color: white;
     position: relative;
+    margin: 0;
+    top: 0;
 }
 
 a{
     color: $c-primary;
 }
+.quote{
+    margin-top: 1em;
+    color: $c-primary;
+}
 
-#match{
-    visibility: hidden;
+@media screen and (max-width: 800px) {
+    .row .form{
+       margin-top: 2em;
+       margin-bottom: 3em;
+    }
+    .quote{
+        display: none;
+    }
 }

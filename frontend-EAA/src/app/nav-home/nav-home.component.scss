@@ -25,12 +25,16 @@
         display: flex;
         align-items: center;
     }
-    a {
+    a, button {
         text-align: center;
         padding: 12px;
         color: white;
         text-decoration: none;
         font-size: 17px;
+    }
+    button{
+        background-color: $c-primary;
+        border: 0px;
     }
     
   }

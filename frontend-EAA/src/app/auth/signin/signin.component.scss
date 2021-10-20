@@ -4,7 +4,6 @@
 }
 
 .form{
-    border: 1px solid $c-primary;
     background-color: white;
     position: relative;
 }
@@ -12,4 +11,17 @@
 a{
     color: $c-primary;
 }
+.quote{
+    margin-top: 1em;
+    color: $c-primary;
+}
 
+@media screen and (max-width: 800px) {
+    .row .form{
+       margin-top: 2em;
+       margin-bottom: 3em;
+    }
+    .quote{
+        display: none;
+    }
+}

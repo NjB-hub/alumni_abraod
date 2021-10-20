@@ -1,22 +1,22 @@
 <section class="  p-3 m-0">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 col text-center my-3">
+            <div class="col-lg-6 col text-center mb-3">
                 <img src="assets/images/logoEAA.jpeg" width="200" height="200" alt="Logo du site" />
+                <p class="quote">Let's reconnect !</p>
             </div>
 
-            <div class="col-lg-4 col p-4 m-sm-5 form" >
+            <div class="col-lg-4 col p-4 m-sm-5 form shadow-lg" >
                 <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" >
                     
-                    <div class="mb-3">
+                    <div class="mb-2">
                         <label for="email" class="form-label">Email address</label>
                         <input type="email"
                          class="form-control"
                           id="email" 
                           formControlName="email"/>
-                        <div class="form-text">We'll never share your email with anyone else.</div>
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-2">
                         <label for="username" class="form-label">Username </label>
                         <input type="text"
                         class="form-control"
@@ -26,21 +26,21 @@
                     <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
                         <div *ngIf="f.username.errors.required">Username is required</div>
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-2">
                         <label for="password" class="form-label">Password</label>
                         <input type="password"
                         class="form-control"
                         id="password"
                         formControlName="password" /> 
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-2">
                         <label for="passwordConfirmation" class="form-label">Password Confirmation</label>
                         <input type="password"
                         class="form-control"
                         id="passwordConfirmation"
                         formControlName="passwordConfirmation" > 
                     </div>
-                    <div class="mb-3 form-check">
+                    <div class="mb-2 form-check">
                         <input type="checkbox" class="form-check-input" id="check">
                         <label class="form-check-label" for="check">Check me out</label>
                     </div>
@@ -52,13 +52,13 @@
                     </div> 
                     <hr>
                     <div class="text-center mt-2">
-                        <a href="">Already have an account? Sign in</a>
+                        <a routerLink="/signin">Already have an account? Sign in</a>
                     </div>   
                 </form>
                 
                 <div class=" d-flex align-items-end flex-column mt-2 " >
                     <br>
-                    <a href="">Go back to home</a>
+                    <a routerLink="/index">Go back to home</a>
                 </div>
             </div>
         </div>
