@@ -1,0 +1,55 @@
+<section class=" m-0" id="signin-root">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col text-center my-3">
+                <img src="assets/images/logoEAA.jpeg" width="200" height="200" alt="Logo du site" />
+            </div>
+
+            <div class="col-lg-4 col p-1 m-sm-5 form" >
+                <form [formGroup]="signinForm" (ngSubmit)="onSubmit()" class="form-group">
+                    
+                    <div class="mb-1">
+                        <label for="email" class="form-label">Username</label>
+                        <input type="email"
+                        class="form-control"
+                        id="email"
+                        formControlName="username" />
+                        <div  class="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+                    <div class="mb-1">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password"
+                        class="form-control"
+                        id="password"
+                        formControlName="password" > 
+                    </div>
+                    <div class="mb-1 form-check">
+                        <input type="checkbox" class="form-check-input" id="check">
+                        <label class="form-check-label" for="check">Check me out</label>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" 
+                        class="btn btn--outline-primary"
+                        [ngClass]="{'btn--disabled':signinForm.invalid}"
+                        >Sign in</button>
+                    </div>
+                    <div class="text-center mt-1">
+                        <a href="">Forgot password ?</a>
+                    </div>  
+                    <hr>
+                    <div class="text-center mt-1">
+                        <a href="">Don't have an account ? Sign up</a>
+                    </div>   
+                </form>
+                
+                <div class=" d-flex align-items-end flex-column mt-1 " >
+                    <br>
+                    <a href="">Go back to home</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+

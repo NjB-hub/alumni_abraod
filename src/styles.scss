@@ -1,0 +1,43 @@
+/* You can add global styles to this file, and also import other style files */
+$c-primary: rgb(5, 19, 67);
+$paddingBtn : 1em;
+$radiusBtn: 0.1em;
+/* Fonts */
+.bg{
+    &--primary{
+        background-color: $c-primary;
+    }
+}
+
+/* Buttons */
+.btn{
+    display: inline-block;
+    &--primary{
+        background: $c-primary;
+        color: white;
+        padding: $paddingBtn;
+        border-radius: $radiusBtn;
+        
+    }
+    &--outline-primary{
+        background: transparent;
+        color: $c-primary;
+        border: 2px solid $c-primary ;
+        &.btn--disabled{
+            border: 2px solid grey;
+            &:hover{
+                border: 2px solid grey;
+                background: grey;
+                color: $c-primary;
+            }
+        }
+        &:hover{
+            background-color: $c-primary;
+            color: white;
+        }
+    }
+    &--disabled{
+        background: grey;
+    }
+
+}

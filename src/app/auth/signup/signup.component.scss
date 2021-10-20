@@ -1,0 +1,22 @@
+@import "../../../styles.scss";
+.row{
+    align-items: center;
+}
+
+.form{
+    border: 1px solid $c-primary;
+    background-color: white;
+    position: relative;
+}
+
+a{
+    color: $c-primary;
+}
+
+#match{
+    visibility: hidden;
+}
+
+#signup-root{
+    height: 100vh;
+}
