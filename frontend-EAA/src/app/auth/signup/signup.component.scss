@@ -4,7 +4,7 @@
     
 }
 .form{
-    height: 80vh;
+    height: 90vh;
     background-color: white;
     position: relative;
     margin: 0;
@@ -17,6 +17,32 @@ a{
 .quote{
     margin-top: 1em;
     color: $c-primary;
+}
+.mb-2{ //css code for the eye icon to be placed near the input password
+    position: relative;
+    .passwordDiv{
+        border: 1px solid #CED4DA;
+        border-radius: 0.25em;
+        position:relative;
+        display: flex;
+        align-items: center;
+        input{
+            position: relative;
+            border: 0;
+            &:focus{
+                border-color: rgba(206, 212, 218, 0.6);
+                box-shadow: 0 1px 1px rgba(0, 0, 0, 0) inset, 0 0 8px rgba(206, 212, 218, 0);
+                outline: 0 none !important;
+            }
+        }
+    }
+}
+.signupMessage{
+    padding-top: 0.5em;
+    padding-left: 0.5em;
+    padding-bottom: 0.05em;
+    margin-bottom: 0.5em;
+    text-align: center;
 }
 
 @media screen and (max-width: 800px) {

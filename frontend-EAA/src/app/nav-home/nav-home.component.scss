@@ -7,6 +7,7 @@
         a{
             float: none;
             display: flex;
+            
         }
         &--right{
             display: flex;
@@ -25,16 +26,58 @@
         display: flex;
         align-items: center;
     }
-    a, button {
+    a{
         text-align: center;
         padding: 12px;
         color: white;
         text-decoration: none;
         font-size: 17px;
+        &.fromleft{
+            &::after{
+                display: block;
+                content: " ";
+                border-bottom: 2px solid white;
+                transform: scaleX(0);
+                transition: transform  250ms ease-in-out;
+                transform-origin: 0% 50%;
+    
+            }
+            &:hover{
+                &::after{
+                    transform: scaleX(1);
+                    
+                }
+            }
+        }
     }
-    button{
+    .nav--right .dropdown-menu {
         background-color: $c-primary;
-        border: 0px;
+        a{
+            text-align: center;
+            padding: 12px;
+            color: white;
+            text-decoration: none;
+            font-size: 17px;
+            &.fromleft{
+                &::after{
+                    display: block;
+                    content: " ";
+                    border-bottom: 2px solid white;
+                    transform: scaleX(0);
+                    transition: transform  250ms ease-in-out;
+                    transform-origin: 0% 50%;
+        
+                }
+                &:hover{
+                    background-color: $c-primary;
+                    &::after{
+                        transform: scaleX(1);
+                        
+                    }
+                }
+            }
+
+        }
     }
     
   }

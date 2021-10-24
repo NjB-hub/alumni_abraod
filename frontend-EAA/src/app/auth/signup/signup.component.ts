@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {  FormBuilder, Validators, FormGroup, AbstractControl } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
-import  Validation  from '../../shared/validation';
+import  checkPassword  from '../../validators/checkPassword';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,15 +11,17 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent implements OnInit {
   signupForm : FormGroup = this.fb.group({ });
-  submitted = false;
-  
+  signupMessage: string = 'gfhghfsghdg';
   constructor(private fb: FormBuilder,
               private authService: AuthService,
               private router:Router) { 
     
   }
-  get f(): {[key: string]: AbstractControl}{
-    return this.signupForm.controls;
+  get username(){
+    return this.signupForm.get('username');
+  }
+  get password(){
+    return this.signupForm.get('password');
   }
   onSubmit(): void {
     var email = this.signupForm.get('email')!.value;
@@ -27,7 +29,10 @@ export class SignupComponent implements OnInit {
     var username = this.signupForm.get('username')!.value;
     this.authService.signUpUser(email,username,password).then(
       () => {this.router.navigate(['/home']);},
-      (error) => {}
+      (error) => {
+        this.signupMessage = "message d'erreur venant du backend ";
+        this.router.navigate(['/signup']);
+       }
     );
     
   }
@@ -35,11 +40,11 @@ export class SignupComponent implements OnInit {
     this.signupForm = this.fb.group({
       email: ['', [Validators.required,Validators.email]],
       username: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(20)]],
-      password: ['', [Validators.required]],
+      password: ['', [Validators.required, Validators.minLength(6), Validators.pattern("^.*[~!@#$%^&*|]+.*$")]],
       passwordConfirmation: ['', [Validators.required]]
     },
     {
-      validators: [Validation.match('password', 'passwordConfirmation')]
+      validators: [checkPassword]
     });
   }
   ngOnInit(): void {

@@ -13,6 +13,7 @@ $radiusBtn: 0.3em;
 /* Buttons */
 .btn{
     display: inline-block;
+    transition: transform 200ms ease-in-out;
     &--primary{
         background: $c-primary;
         color: white;
@@ -38,10 +39,14 @@ $radiusBtn: 0.3em;
         &:hover{
             background-color: $c-primary;
             color: white;
+            transform: perspective(75px) translateZ(10px);
         }
     }
     &--disabled{
         background: grey;
     }
 
+}
+body{
+    font-family: 'calibri','trebuchet ms', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif !important;
 }

@@ -8,7 +8,10 @@
 
             <div class="col-lg-4 col p-4 m-sm-5 form shadow-lg" >
                 <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" >
-                    
+                    <div class="signupMessage alert-danger"
+                    *ngIf="signupMessage != '' ">
+                        <p>{{signupMessage}}</p>
+                    </div>
                     <div class="mb-2">
                         <label for="email" class="form-label">Email address</label>
                         <input type="email"
@@ -23,22 +26,40 @@
                         id="username"
                         formControlName="username"  >
                     </div>
-                    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-                        <div *ngIf="f.username.errors.required">Username is required</div>
+                    <div class="mb-1 small text-danger"
+                               *ngIf="username?.errors?.minlength"><p>The username must contain at least 6 characters !</p>
+                    </div>
+                    <div class="mb-1 small text-danger"
+                               *ngIf="username?.errors?.maxlength"><p>The username must contain less than 20 characters !</p>
                     </div>
                     <div class="mb-2">
                         <label for="password" class="form-label">Password</label>
-                        <input type="password"
-                        class="form-control"
-                        id="password"
-                        formControlName="password" /> 
+                        <div class="passwordDiv">
+                            <input type="password"
+                                    class="form-control"
+                                    id="password"
+                                    formControlName="password"
+                                    appPassword >
+                        </div>
+                    </div>
+                    <div class="mb-1 small text-danger"
+                               *ngIf="password?.errors?.minlength"><p>The password must contain at least 6 characters !</p>
+                    </div>
+                    <div class="mb-1 small text-danger"
+                               *ngIf="!password?.errors?.minlength && password?.errors?.pattern"><p>The password must contain at least one special character !</p>
                     </div>
                     <div class="mb-2">
                         <label for="passwordConfirmation" class="form-label">Password Confirmation</label>
-                        <input type="password"
-                        class="form-control"
-                        id="passwordConfirmation"
-                        formControlName="passwordConfirmation" > 
+                        <div class="passwordDiv">
+                            <input type="password"
+                                    class="form-control"
+                                    id="passwordConfirmation"
+                                    formControlName="passwordConfirmation"
+                                    appPassword >
+                        </div>
+                    </div>
+                    <div class="mb-1 small text-danger"
+                               *ngIf="signupForm.hasError('notSame')"><p>The inputs don't match !</p>
                     </div>
                     <div class="mb-2 form-check">
                         <input type="checkbox" class="form-check-input" id="check">
