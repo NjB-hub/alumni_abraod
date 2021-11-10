@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ShowPasswordComponent } from './show-password.component';
+import { FooterComponent } from './footer.component';
 
-describe('ShowPasswordComponent', () => {
-  let component: ShowPasswordComponent;
-  let fixture: ComponentFixture<ShowPasswordComponent>;
+describe('FooterComponent', () => {
+  let component: FooterComponent;
+  let fixture: ComponentFixture<FooterComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ShowPasswordComponent ]
+      declarations: [ FooterComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ShowPasswordComponent);
+    fixture = TestBed.createComponent(FooterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

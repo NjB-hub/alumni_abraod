@@ -18,9 +18,9 @@ import { NavIndexComponent } from './nav-index/nav-index.component';
 import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 import { FooterIndexComponent } from './footer-index/footer-index.component';
 import { BackuppasswordComponent } from './backuppassword/backuppassword.component';
-import { ShowPasswordComponent } from './show-password/show-password.component';
 import { PasswordDirective } from './directives/password.directive';
 import { AuthGuardService } from './services/auth-guard.service';
+import { FooterComponent } from './footer/footer.component';
 
 const appRoutes: Routes = [
   { path: 'signin', component: SigninComponent },
@@ -48,7 +48,7 @@ const appRoutes: Routes = [
     FourOhFourComponent,
     FooterIndexComponent,
     BackuppasswordComponent,
-    ShowPasswordComponent,
+    FooterComponent,
     PasswordDirective
   ],
   imports: [

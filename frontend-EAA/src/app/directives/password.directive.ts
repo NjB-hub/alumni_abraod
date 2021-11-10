@@ -8,20 +8,21 @@ export class PasswordDirective {
   constructor(private element: ElementRef) {
     this.setup();
    }
+
    toggle(span: HTMLElement) {
     this.isShown = !this.isShown;
     if (this.isShown) {
-      this.element.nativeElement.setAttribute('type', 'icon');
-      span.innerHTML = '<i class="fa fa-eye-slash" id="togglePassword" style="position:relative; right: 10px; cursor: pointer;"></i>';
+      this.element.nativeElement.setAttribute('type', 'text');
+      span.innerHTML = `<div class="pl-4 mt-1" style="font-size:1em"><input type="checkbox" class="form-check-input" id="check" class="" checked><label class="form-check-label" for="check">Show password</label></div>`;
     } else {
       this.element.nativeElement.setAttribute('type', 'password');
-      span.innerHTML = '<i class="fa fa-eye" id="togglePassword" style="position:relative; right: 10px; cursor: pointer;"></i>';
+      span.innerHTML = `<div class="pl-4 mt-1" style="font-size:1em"><input type="checkbox" class="form-check-input" id="check" class=""><label class="form-check-label" for="check">Show password</label></div>`;
     }
   }
    setup() {
     const parent = this.element.nativeElement.parentNode;
-    const span = document.createElement('span');
-    span.innerHTML = `<i class="fa fa-eye" id="togglePassword" style="position:relative; right: 10px; cursor: pointer;"></i>`;
+    const span = document.createElement('p');
+    span.innerHTML = `<div class="pl-4 mt-1" style="font-size:1em"><input type="checkbox" class="form-check-input" id="check" class=""><label class="form-check-label" for="check">Show password</label></div>`;
     span.addEventListener('click', (event) => {
       this.toggle(span)
     });

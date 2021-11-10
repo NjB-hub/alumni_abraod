@@ -3,16 +3,24 @@
     .hidden-sm{
       display: none;
     }
-    nav {
-        a{
-            float: none;
-            display: flex;
-            
-        }
-        &--right{
-            display: flex;
-        }
+    .dropdown{
+        position: relative;
     }
+    nav {
+        .nav--right{
+            display: flex;
+            .dropdown-menu.menu{
+                position: relative;
+                margin-right: 2.3em;
+                text-align: center;
+            }
+            a{
+                text-align: center;
+            }
+        }
+        
+    }
+    
 }
 
 .nav {
@@ -22,9 +30,13 @@
     background-color: $c-primary;
     justify-content: space-between;
     height: 5em;
+    position: relative;
     &--right{
         display: flex;
         align-items: center;
+        position: relative;
+        margin-right: 1em;
+        
     }
     a{
         text-align: center;
