@@ -1,0 +1,46 @@
+@import "../../../styles.scss";
+h2{
+    border-bottom: 2px solid $c-primary;
+}
+.cv{
+    &-header{
+        padding: 2em;
+        display: flex;
+        flex-direction: column;
+        background-color: $c-primary;
+        color: white;
+    }
+    &-user-name{
+        border-bottom: 1px solid white;
+        text-transform: uppercase;
+        font-size: larger;
+    }
+    &-user-post{
+        text-align: right;
+        text-transform: uppercase;
+    }
+    &-user-info{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 2em;
+        i{
+            padding-bottom: 0.4em;
+        }
+        span{
+            word-wrap: break-word;
+        }
+    }
+    
+    &-right{
+        background-color: grey;
+        font-size: 0.75em;
+        text-align: center;
+        .cv-expertise{
+            text-transform: uppercase;
+        }
+        .cv-list{
+            list-style-type: none;
+            
+        }
+    }
+}

@@ -21,6 +21,8 @@ import { BackuppasswordComponent } from './backuppassword/backuppassword.compone
 import { PasswordDirective } from './directives/password.directive';
 import { AuthGuardService } from './services/auth-guard.service';
 import { FooterComponent } from './footer/footer.component';
+import { CvComponent } from './cvFolder/cv/cv.component';
+import { CvExpertiseItemComponent } from './cvFolder/cv-expertise-item/cv-expertise-item.component';
 
 const appRoutes: Routes = [
   { path: 'signin', component: SigninComponent },
@@ -30,6 +32,7 @@ const appRoutes: Routes = [
   { path: 'forgotpassword', component: ForgotPasswordComponent },
   { path: 'not-found', component: FourOhFourComponent },
   { path: 'backuppassword', component: BackuppasswordComponent },
+  { path: 'cv', component: CvComponent },
   { path: '', component: IndexComponent },
   { path: '**', redirectTo: 'not-found' }
 ];
@@ -49,7 +52,9 @@ const appRoutes: Routes = [
     FooterIndexComponent,
     BackuppasswordComponent,
     FooterComponent,
-    PasswordDirective
+    PasswordDirective,
+    CvComponent,
+    CvExpertiseItemComponent
   ],
   imports: [
     BrowserModule,
