@@ -17,10 +17,10 @@
 }
    
 .interrogation{
-    font-size: 5em;
+    font-size: 4.5em;
     color: $c-primary;
     float: right;
-    margin-left: 0.5em;
+    margin-left: 0.05em;
     border: 2px solid $c-primary;
     width: 1.5em;
     height: 1.5em;
@@ -61,15 +61,24 @@ h2{
         font-size: 1.5em;
         width: 2em;
         height: 0.5em;
-    }
-    
+    }   
 }
+
 @media screen and (max-width: 800px) {
     .cont{
       display: flex;
       flex-direction: column;
       align-items: center;
-    }  
-    
+    } 
+    .eaa-desc{
+        font-size: small;
+    }
+    .col.title {
+        display: flex;
+        justify-content: center !important;
+    }
+    .col-lg-6{
+        display: none;
+    }    
     
 }

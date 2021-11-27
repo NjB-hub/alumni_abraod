@@ -1,0 +1,49 @@
+<app-nav-home></app-nav-home>
+<section class="mt-3">
+    <div class="row">
+        <div class="col-lg-6">
+            <h5>Publish an offer</h5>
+            <hr class="mt-0 bg--primary"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <form class="p-3 shadow" [formGroup]="pubOfferForm" (ngSubmit)="onSubmit()">
+                
+                
+                <div class="mb-3 form-input">
+                    <label for="title" class="form-label col-2 mr-1">Title</label>
+                    <input type="text"
+                    class="form-control"
+                    id="title"
+                    formControlName="title" />
+                </div>
+                <div class="mb-1 small text-danger"
+                           *ngIf="title?.errors?.minlength"><p>The title must contain at least 6 characters !</p>
+                </div>
+                <div class="form-group">
+                  <label for="description" class="col-2 mr-1">Description</label>
+                  <textarea class="form-control" name="" id="description" rows="5"></textarea>
+                </div>
+                  
+                <div class="mb-3 form-input">
+                    <label for="links" class="form-label col-2 mr-1">External links</label>
+                    <input type="text"
+                    class="form-control"
+                    id="links"
+                    formControlName="title" />
+                </div>
+                <div class="row mb-3">
+                    <a role="button" class="btn btn--outline-primary mr-5">Add Images</a>
+                    <a role="button" class="btn btn--outline-primary">Add Images</a>
+                </div>
+                <div class="text-center">
+                    <button type="submit" 
+                    class="btn btn--outline-primary"
+                    [ngClass]="{'btn--disabled':pubOfferForm.invalid}"
+                    >Publish</button>
+                </div> 
+            </form>
+        </div>
+    </div>
+</section>

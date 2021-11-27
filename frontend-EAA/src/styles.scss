@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 $c-primary: rgb(5, 19, 67);
-$paddingBtn : 0.5em;
+$c-gold: rgb(192, 177, 147);
+$c-paleBlue: rgb(227, 230, 237);
+$paddingBtn : 0.39em;
 $radiusBtn: 0.3em;
 $radiusBtnLg: 0.5em;
 /* Fonts */
@@ -34,6 +36,9 @@ $radiusBtnLg: 0.5em;
             padding-top: 1em;
             border-radius: $radiusBtn;
         }
+        &.btn--straight{
+            border-radius: 0px;
+        }
     }
     &--outline-primary{
         border-radius: $radiusBtn;
@@ -52,7 +57,6 @@ $radiusBtnLg: 0.5em;
         &:hover{
             background-color: $c-primary;
             color: white;
-            transform: perspective(75px) translateZ(10px);
         }
         &.btn--lg{
             width: 15em;
@@ -66,6 +70,9 @@ $radiusBtnLg: 0.5em;
             padding-top: 1em;
             border-radius: $radiusBtn;
         }
+        &.btn--straight{
+            border-radius: 0px;
+        }
     }
     &--disabled{
         background: grey;
@@ -74,4 +81,27 @@ $radiusBtnLg: 0.5em;
 }
 body{
     font-family: 'calibri','trebuchet ms', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif !important;
+}
+a.primary{
+    color: $c-primary;
+    text-decoration: none;
+    &:hover{
+        text-decoration: none;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .hidden-sm{
+      display: none;
+    } 
+}
+@media screen and (max-width: 1149px) {
+    .hidden-md{
+      display: none;
+    } 
+}
+@media screen and (min-width: 1149px) {
+    .appear-md{
+      display: none;
+    } 
 }

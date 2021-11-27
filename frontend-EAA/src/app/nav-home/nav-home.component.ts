@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-nav-home',
@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavHomeComponent implements OnInit {
 
+  @Input() isVisible:boolean=true;
   constructor() { }
 
   ngOnInit(): void {
+  }
+  signOut() {
+    if(confirm("Are you sure to log out ? ")) {
+      console.log("Implement delete functionality here");
+    }
   }
 
 }

@@ -1,4 +1,5 @@
 @import "../../styles.scss";
+
 @media screen and (max-width: 800px) {
     .hidden-sm{
       display: none;
@@ -6,19 +7,21 @@
     .dropdown{
         position: relative;
     }
-    nav {
-        .nav--right{
-            display: flex;
-            .dropdown-menu.menu{
-                position: relative;
-                margin-right: 2.3em;
-                text-align: center;
-            }
+    .nav{
+        .nav--right .dropdown-menu.menu{
+            position: relative;
+            margin-right: 5.1em;
             a{
                 text-align: center;
             }
         }
-        
+    }   
+}
+.active-link{
+    &::after{
+        display: block;
+        content: " ";
+        border-bottom: 2px solid white !important;
     }
     
 }
@@ -36,6 +39,10 @@
         align-items: center;
         position: relative;
         margin-right: 1em;
+        .dropdown-menu.menu{
+            position: relative;
+            margin-right: 1.5em;
+        }
         
     }
     a{
@@ -44,24 +51,30 @@
         color: white;
         text-decoration: none;
         font-size: 17px;
-        &.fromleft{
-            &::after{
-                display: block;
-                content: " ";
-                border-bottom: 2px solid white;
-                transform: scaleX(0);
-                transition: transform  250ms ease-in-out;
-                transform-origin: 0% 50%;
-    
-            }
-            &:hover{
+        &:not(.active-link){
+            &.fromleft{
                 &::after{
-                    transform: scaleX(1);
+                    display: block;
+                    content: " ";
                     
+                    border-bottom: 2px solid white;
+                    transform: scaleX(0);
+                    transition: transform  250ms ease-in-out;
+                    transform-origin: 0% 50%;
+        
                 }
+                &:hover {
+                    &::after{
+                        transform: scaleX(1);
+                        
+                    }
+                }
+                
             }
         }
+        
     }
+    
     .nav--right .dropdown-menu {
         background-color: $c-primary;
         a{

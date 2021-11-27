@@ -1,0 +1,25 @@
+@import "../../../styles.scss";
+.result-head{
+    border-bottom: 1px solid $c-primary;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &--left{
+        display: flex;
+        align-items: center;
+    }
+    .result-id{
+        display: flex;
+        flex-direction: column;
+    }
+    img{
+        color: $c-primary;
+        border: 0.05em solid $c-primary;
+        width: 75px;
+        height: 75px;
+        border-radius: 37.5px;
+        
+    }
+    
+}

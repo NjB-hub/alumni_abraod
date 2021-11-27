@@ -1,21 +1,23 @@
-<nav class="nav">
+<nav class="nav" >
     <a class="navbar-brand">
         <img src='assets/images/logoEAA.jpeg' width="50" height="50" alt="Logo du site" />
         <span class="hidden-sm">ENSPY-Alumni</span>   
     </a>
-    <a class="nav-link fromleft" ><i class="fa fa-fw fa-home"></i> <span class="hidden-sm">Home</span></a>
-    <a class="nav-link fromleft" ><i class="fa fa-fw fa-search"></i> <span class="hidden-sm">Search</span></a>
-    <a class="nav-link fromleft" ><i class="fa fa-fw fa-bell"></i> <span class="hidden-sm">Notifications</span></a>
+    <a class="nav-link fromleft" routerLinkActive="active-link" routerLink="/feed"><i class="fa fa-fw fa-home"></i> <span class="hidden-sm">Feed</span></a>
+    <a class="nav-link fromleft" routerLinkActive="active-link" routerLink="/search"><i class="fa fa-fw fa-search"></i> <span class="hidden-sm">Search</span></a>
+    <a class="nav-link fromleft" routerLinkActive="active-link" routerLink="/notifications"><i class="fa fa-fw fa-bell"></i> <span class="hidden-sm">Notifications</span></a>
+    <a class="nav-link fromleft" routerLinkActive="active-link" routerLink="/calendar"><i class="fa fa-fw fa-calendar"></i><span class="hidden-sm">Calendar</span> </a>
     <div class="nav--right">
       <div class="dropdown">
         <a class="nav-link dropdown-toggle"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button"><i class="fas fa-cog"></i><span class="hidden-sm">Settings</span></a>
             <div class="dropdown-menu menu">
-              <a class="dropdown-item fromleft" href="#">Francais</a>
-              <a class="dropdown-item fromleft" href="#">English</a>
+              <a class="dropdown-item fromleft" routerLink="/settings/profile">Profile</a>
+              <a class="dropdown-item fromleft" href="#">Settings</a>
+              <a class="dropdown-item fromleft" role="button" (click)="signOut()" href="#">Log out</a>
             </div>
       </div>
         
-      <a class="nav-link fromleft"><i class="fa fa-fw fa-user"></i> <span class="hidden-sm">Profile</span></a> 
+     
        
     </div>
     

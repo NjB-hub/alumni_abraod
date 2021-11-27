@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cv-expertise-item.component.scss']
 })
 export class CvExpertiseItemComponent implements OnInit {
-
+  expertise:string = "Team Management"
   constructor() { }
 
   ngOnInit(): void {
