@@ -1,0 +1,59 @@
+<app-nav-home></app-nav-home>
+<h5 class="text-center mt-3">Modify personal informations</h5>
+<section class="container mt-5">
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col">
+            <form [formGroup]="userForm" (ngSubmit)="onSubmitForm()" class="my-3">
+                <div class="row">
+                    <div class="form-group  col">
+                        <label for="firstName">First name</label>
+                        <input type="text" id="firstName" class="form-control" formControlName="firstName">
+                      </div>
+                      <div class="form-group col">
+                        <label for="lastName">Last name</label>
+                        <input type="text" id="lastName" class="form-control" formControlName="lastName">
+                      </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col">
+                        <label for="email">Email address</label>
+                        <input type="text" id="email" class="form-control" formControlName="email">
+                    </div>
+                    <div class="form-group col">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" class="form-control" formControlName="username">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                  <label for="birth">Date of birth</label>
+                  <input type="date" id="birth" class="form-control" formControlName="birth">
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone number</label>
+                    <input type="phone" id="phone" class="form-control" formControlName="phone">
+                </div>
+                <div class="form-group">
+                    <label for="position">Position</label>
+                    <input type="text" id="position" class="form-control" formControlName="position">
+                  </div>
+                  <div class="form-group">
+                    <label for="address">Address</label>
+                    <input type="text" id="address" class="form-control" formControlName="address">
+                  </div>
+
+                <!--<div formArrayName="hobbies">
+                      <h3>Vos hobbies</h3>
+                      <div class="form-group" *ngFor="let hobbyControl of getHobbies().controls; let i = index">
+                      <input type="text" class="form-control" [formControlName]="i">
+                      </div>
+                      <button type="button" class="btn btn-success" (click)="onAddHobby()">Ajouter un hobby</button>
+                </div> -->
+                <button type="submit" class=" btn--primary" [disabled]="userForm.invalid">Submit</button>
+              </form>
+        </div>
+        <div class="col-lg-3"></div>
+    </div>
+</section>

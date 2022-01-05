@@ -1,5 +1,7 @@
 @import "../../../styles.scss";
 .row{
+    display:flex;
+    flex-direction: row;
     align-items: center;
 }
 
@@ -37,6 +39,11 @@ a{
 }
 
 @media screen and (max-width: 800px) {
+    .row{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
     .row .form{
        margin-top: 2em;
        margin-bottom: 3em;

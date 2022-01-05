@@ -22,7 +22,7 @@ export class PasswordDirective {
    setup() {
     const parent = this.element.nativeElement.parentNode;
     const span = document.createElement('p');
-    span.innerHTML = `<div class="pl-4 mt-1" style="font-size:1em"><input type="checkbox" class="form-check-input" id="check" class=""><label class="form-check-label" for="check">Show password</label></div>`;
+    span.innerHTML = `<div class="pl-4 mt-1" style="font-size:1em"><input type="checkbox" class="form-check-input"  class=""><label class="form-check-label" for="check">Show password</label></div>`;
     span.addEventListener('click', (event) => {
       this.toggle(span)
     });

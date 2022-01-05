@@ -9,9 +9,9 @@
     <a class="nav-link fromleft" routerLinkActive="active-link" routerLink="/calendar"><i class="fa fa-fw fa-calendar"></i><span class="hidden-sm">Calendar</span> </a>
     <div class="nav--right">
       <div class="dropdown">
-        <a class="nav-link dropdown-toggle"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button"><i class="fas fa-cog"></i><span class="hidden-sm">Settings</span></a>
+        <a class="nav-link dropdown-toggle" routerLinkActive="active-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button"><i class="fas fa-cog"></i><span class="hidden-sm">Settings</span></a>
             <div class="dropdown-menu menu">
-              <a class="dropdown-item fromleft" routerLink="/settings/profile">Profile</a>
+              <a class="dropdown-item fromleft" routerLink="/settings/viewprofile">Profile</a>
               <a class="dropdown-item fromleft" href="#">Settings</a>
               <a class="dropdown-item fromleft" role="button" (click)="signOut()" href="#">Log out</a>
             </div>

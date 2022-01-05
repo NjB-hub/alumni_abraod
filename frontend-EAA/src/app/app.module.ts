@@ -36,10 +36,18 @@ import { ResultListComponent } from './searchFolder/result-list/result-list.comp
 import { ResultListItemComponent } from './searchFolder/result-list-item/result-list-item.component';
 import { PublishOfferComponent } from './feedFolder/publish-offer/publish-offer.component';
 //import { NavHomeService } from './services/nav-home.service';
+import { ProfileComponent } from './profile/profile.component';
+import { CvFormComponent } from './cvFolder/cv-form/cv-form.component';
+import { ProfileFormComponent } from './profile-form/profile-form.component';
+
 
 const appRoutes: Routes = [
   { path: 'signin', component: SigninComponent },
   { path: 'signup', component: SignupComponent },
+  { path: 'settings/viewprofile', component: ProfileComponent },
+  { path: 'settings/modifyprofile', component: ProfileFormComponent },
+  { path: 'settings/viewcv', component: CvComponent },
+  { path: 'settings/modifycv', component: CvFormComponent },
   { path: 'feed',/* canActivate: [AuthGuardService]*/ component: HomeComponent }, //canActivate for app protection when not signed in
   { path: 'index', component: IndexComponent },
   { path: 'feed/publish:offer', component: PublishOfferComponent },
@@ -83,7 +91,10 @@ const appRoutes: Routes = [
     CalendarContainerComponent,
     ResultListComponent,
     ResultListItemComponent,
-    PublishOfferComponent
+    PublishOfferComponent,
+    ProfileComponent,
+    CvFormComponent,
+    ProfileFormComponent
   ],
   imports: [
     BrowserModule,

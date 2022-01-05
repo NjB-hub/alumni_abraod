@@ -26,6 +26,7 @@ export class SigninComponent implements OnInit {
   onSubmit(): void {
     var username = this.signinForm.get('username')!.value;
     var password = this.signinForm.get('password')!.value;
+    console.log(username);
     this.authService.signInUser(username,password).then(
       () => {this.router.navigate(['/home']);},
       (error) => {

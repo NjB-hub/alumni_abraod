@@ -1,0 +1,29 @@
+@import "../../styles.scss";
+.left{
+    &-photo{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        img{
+            color: $c-primary;
+            border: 0.05em solid $c-primary;
+            width: 150px;
+            height: 150px;
+            border-radius: 75px;
+            margin-bottom: 1em;
+            
+        }
+    }
+}
+.right{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .line{
+        display: flex;
+        justify-content: space-between;
+        margin: 0.5em;
+        position: relative;
+        width: 80%;
+    }
+}
