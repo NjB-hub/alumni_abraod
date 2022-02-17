@@ -11,7 +11,6 @@ module.exports = {
     username: { 
       type: 'string',
       required: true,
-      unique: true
     },
     email: {
       type: 'string',
@@ -48,6 +47,7 @@ module.exports = {
       
       const token = await sails.helpers.strings.random('url-friendly');
 
+      //create the user
       let newUser = await User.create({
         username: inputs.username,
         email: newEmailAddress,
@@ -57,17 +57,19 @@ module.exports = {
           Date.now() + sails.config.custom.emailProofTokenTTL,
       }).fetch();
 
+      //create the user's profile
+      let newUserProfile = await Profile.create({
+        profileOwner: newUser.id
+      }).fetch();
       
-      const confirmLink = `${sails.config.custom.baseUrl}/user/confirm?token=${token}`;
+      const confirmLink = `${sails.config.api_baseUrl}/user/confirm?token=${token}`;
 
       //setup and send the mail
       const email = {
         to: newUser.email,
-        subject: 'Confirm Your account',
-        template: 'confirm',
         context: {
-          name: newUser.username,
-          confirmLink: confirmLink,
+          subject: "Confrim your email",
+          text: "Hello " + newUser.username + ". To validate your email address click on the following link " + confirmLink,
         },
       };
 
@@ -81,7 +83,7 @@ module.exports = {
       if (error.code === 'E_UNIQUE') {
         return exits.emailAlreadyInUse({
           message: 'Oops :) an error occurred',
-          error: 'This email address already exits',
+          error: 'This email is already used!',
         });
       }
 
@@ -90,10 +92,5 @@ module.exports = {
         error: error.message,
       });
     }
-
-    
-
   }
-
-
 };

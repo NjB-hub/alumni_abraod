@@ -6,17 +6,18 @@
  */
 
 module.exports = {
-  tableName: "offers",
-  attributes: {
 
+  tableName: "offers",
+
+  attributes: {
     company: { 
       type: 'string', 
-      required: true },
+      required: true
+    },
     post_id: { 
       model: 'post', 
-      },
-
+    },
   },
-
+  
 };
 

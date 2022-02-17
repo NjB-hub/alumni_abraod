@@ -19,6 +19,8 @@ module.exports.custom = {
   // stripeSecret: 'sk_test_Zzd814nldl91104qor5911gjald',
   // …
   emailProofTokenTTL: 24 * 60 * 60 * 1000, // 24 hours
-  baseUrl: 'http://localhost:1337'
+  //api_baseUrl: 'http://localhost:1337',
+  api_baseUrl: "https://enspyalumniabroadapi.herokuapp.com/",
+  passwordResetTokenTTL: 24 * 60 * 60 * 1000, // 24 hours,
 
 };

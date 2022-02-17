@@ -8,12 +8,10 @@
 module.exports = {
   tableName: "images",
   attributes: {
-
-    image_name: { type: 'string'},
-    path: {type:'string'},
-    ownerImage: { model: 'post' },
-    
+    name: { type: "string" },
+    size: { type: "number" },
+    type: { type: "string" },
+    path: { type: "string" },
+    ownerImage: { model: "post" },
   },
-
 };
-

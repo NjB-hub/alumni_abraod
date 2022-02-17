@@ -6,38 +6,30 @@
  */
 
 module.exports = {
+
   tableName: "profiles",
+
   attributes: {
-
-    name: {
-      type: 'string', 
-      required: true},
-    surname: {
-      type: 'string', 
-      required: true},
-    gender: {
-      type: 'string', 
-      required: true},
-    phone: {
-      type: 'string', 
-      required: true},
-    location: {
-      type: 'string', 
-      required: true},
+    name: {type: 'string'},
+    surname: {type: 'string'},
+    gender: {type: 'string'},
+    dateOfBirth: {type: 'string'},
+    phone: {type: 'string'},
+    address: {type: 'string'},
     avatar: {
-        collection: 'avatar',
-        via: 'ownerAvatar' 
-      },
-    profession: {
-      type: 'string', 
-      required: true},
+      collection: 'avatar',
+      via: 'ownerAvatar' 
+    },
+    position: {type: 'string'},
     description: {type: 'string'},
-
     profileOwner: { 
       model: 'user', 
       unique: true,
-      },
-
+    },
+    posts: {
+      collection: 'post',
+      via: 'ownerProfile'
+    }
   },
 
   certifications: {

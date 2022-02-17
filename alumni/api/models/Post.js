@@ -7,29 +7,38 @@
 
 module.exports = {
   tableName: "posts",
+
   attributes: {
-
-    photo:
-    {
-      collection: 'image',
-      via: 'ownerImage'
+    title: {
+      type: "string",
+      required: true,
     },
-
-    description: { type: 'string' }, 
-   category: { 
-    type: 'string',
-    required: true },
-
-   ownerP: {
-    model: 'user', 
+    // photo: {
+    //   collection: "image",
+    //   via: "ownerImage",
+    // },
+    description: { type: "string" },
+    category: {
+      type: "string",
+      required: true,
     },
-    
-   postComments: {
-     collection: 'comment',
-     via: 'owP'
-   }
-
+    event: {
+      collection: "event",
+      via: "post_id",
+    },
+    offer: {
+      collection: "offer",
+      via: "post_id",
+    },
+    ownerP: { model: "user" },
+    ownerProfile: { model: "profile" },
+    postComments: {
+      collection: "comment",
+      via: "owP",
+    },
+    postFile: {
+      collection: "image",
+      via: "ownerImage",
+    },
   },
-
 };
-

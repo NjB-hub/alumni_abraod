@@ -1,23 +1,25 @@
 module.exports = {
 
-
   friendlyName: 'Create',
 
-
   description: 'Create event.',
-
 
   inputs: {
     dateEvent: { 
       type: 'string', 
-      required: true },
+      required: true 
+    },
+    start: {type: 'string'},
+    end: {type: 'string'},
     place: {
       type: 'string',
       required: true
     },
-
+    post_id: {
+      type: 'string',
+      required: true
+    },
   },
-
 
   exits: {
     success: {
@@ -32,18 +34,17 @@ module.exports = {
 
   },
 
-
   fn: async function (inputs, exits) {
 
     try{
      
       let newEvent = await Event.create({
         dateEvent: inputs.dateEvent,
+        start: inputs.start,
+        end: inputs.end,
         place: inputs.place,
-        
+        post_id: inputs.post_id
       }).fetch();
-
-
 
       return exits.success({
         message: `The event has been created successfully !`,

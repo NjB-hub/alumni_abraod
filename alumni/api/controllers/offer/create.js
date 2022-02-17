@@ -1,17 +1,18 @@
 module.exports = {
 
-
   friendlyName: 'Create',
 
-
   description: 'Create offer.',
-
 
   inputs: {
     company: { 
       type: 'string', 
-      required: true },
-
+      required: true 
+    },
+    post_id: {
+      type: 'string',
+      required: true
+    },
   },
 
 
@@ -35,10 +36,8 @@ module.exports = {
      
       let newOffer = await Offer.create({
         company: inputs.company,
-       
+        post_id: inputs.post_id
       }).fetch();
-
-
 
       return exits.success({
         message: `The offer has been created successfully !`,

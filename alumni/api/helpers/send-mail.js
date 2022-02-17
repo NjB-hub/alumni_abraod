@@ -1,6 +1,4 @@
 const nodemailer = require("nodemailer");
-const sgMail = require('@sendgrid/mail')
-const hbs = require("nodemailer-express-handlebars");
 
 module.exports = {
   friendlyName: "Send mail",
@@ -22,54 +20,35 @@ module.exports = {
   },
 
   fn: async function (inputs) {
-    sgMail.setApiKey(sails.config.sendGridAPIkey || process.env.SENDGRID_API_KEY)
+
+    let transporter = nodemailer.createTransport({
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true,
+      auth: { 
+        type: 'OAuth2',
+        user: 'tanankemr@gmail.com',
+        clientId: '120444427591-0m2a025hv1543s2ot0vovfv0ej0j76ig.apps.googleusercontent.com',
+        clientSecret: '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',
+        refreshToken: '1//04ApVwfjcwgI9CgYIARAAGAQSNwF-L9Ir35EjN7KMI66E_hFJzJyUTBN72vZ28L6kJpSAAA0SoiQ10mumziEiYK4ptHfBLzZfbb8',
+        accessToken: 'ya29.A0ARrdaM_MG23sce2GzWfO1GMbrsJn9Ca3LrLN8AV2JJjF_ojvkptnDyHj4XkV9tjnC6pESlAxITXy-XHnHTWr8U3mOl9BJ1eQ-t2gm8VwOvl07ZSsA4Sb4jyXZKUg7YuJmkvSlaBHx0Tr8HaPEvfPpve0vYst'
+      }
+    })
    
     const msg = {
       to: inputs.options.to, // Change to your recipient
       from: 'tanankemr@gmail.com', // Change to your verified sender
-      subject: 'Verify your email address',
-      text: 'To validate your email address click on the following link',
-      template_id:"d-add7922ec34945d0bef5d67c1218770d",
-      dynamic_template_data : inputs.options.context,
+      subject: inputs.options.context.subject,
+      text: inputs.options.context.text,
     }
-    
-    sgMail
-      .send(msg)
-      .then(() => {
-        console.log('Email sent')
-      })
-      .catch((error) => {
-        console.error(error)
-      })
 
-   /* transporter.use(
-      "compile",
+    transporter.sendMail(msg, function(error, info){
+      if (error) {
+        console.log(error);
 
-      hbs({
-        viewEngine: {
-          extName: ".hbs",
-          partialsDir: "./views",
-          layoutsDir: "./views",
-          defaultLayout: "",
-        },
-
-        viewPath: "./views/",
-        extName: ".hbs",
-      })
-    );
-
-    try {
-      let emailOptions = {
-        from: "tanankemr@gmail.com",
-        ...inputs.options,
-      };
-
-      await transporter.sendMail(emailOptions);
-      sails.log("hi");
-
-    } catch (error) {
-      sails.log(error);
-
-    }*/
+      } else {
+        console.log('Email sent: ' + info.response);
+      }
+    });
   },
 };

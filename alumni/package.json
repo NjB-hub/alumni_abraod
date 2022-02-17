@@ -7,10 +7,14 @@
   "dependencies": {
     "@sailshq/lodash": "^3.10.3",
     "@sendgrid/mail": "^7.4.7",
+    "async": "^3.2.3",
+    "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.21",
+    "node-uuid": "^1.4.8",
     "nodemailer": "^6.6.5",
     "nodemailer-express-handlebars": "^4.0.0",
     "nodemailer-sendgrid": "^1.0.3",
+    "nodemon": "^2.0.15",
     "sails": "^1.5.0",
     "sails-hook-organics": "^2.2.0",
     "sails-hook-orm": "^3.0.2",
@@ -25,7 +29,8 @@
     "start": "NODE_ENV=production node app.js",
     "test": "npm run lint && npm run custom-tests && echo 'Done.'",
     "lint": "./node_modules/eslint/bin/eslint.js . --max-warnings=0 --report-unused-disable-directives && echo '✔  Your .js files look good.'",
-    "custom-tests": "echo \"(No other custom tests yet.)\" && echo"
+    "custom-tests": "echo \"(No other custom tests yet.)\" && echo",
+    "dev": "export NODE_ENV=development && nodemon --ignore 'tmp/*' app.js && exit 0"
   },
   "main": "app.js",
   "repository": {
