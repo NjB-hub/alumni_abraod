@@ -89,12 +89,33 @@ module.exports = {
     return proceed();
   },
 
-  // beforeDestroy: function (destroyedRecords, cb) {
-  //   Post.destroy({ user: _.pluck(destroyedRecords, "id") }).exec(cb);
+  // afterDestroy: function (destroyedRecords, cb) {
+  //   Post.destroy({ user: _.pluck(destroyedRecords, "ownerP") }).exec(cb);
   //   /* Comment.destroy({ user: _.pluck(destroyedRecords, "ownerC") }).exec(cb);
   //   Profile.destroy({ user: _.pluck(destroyedRecords, "profileOwner") }).exec(
   //     cb
   //   );
   //   Event.destroy({ user: _.pluck(destroyedRecords, "participants") }).exec(cb);*/
+  // },
+
+  // beforeDestroy: function (criteria, cb) {
+  //   // Destroy any post associated to a deleted user
+  //   User.find(criteria)
+  //     .populate("userPosts")
+  //     .exec(function (err, users) {
+  //       if (err) return cb(err);
+  //       users.forEach(function (recordToDestroy) {
+  //         Post.destroy({ id: _.pluck(recordToDestroy.userPosts, "id") }).exec(
+  //           function (err) {
+  //             console.log(
+  //               "The posts associated to the user " +
+  //                 recordToDestroy.username +
+  //                 " have been deleted"
+  //             );
+  //           }
+  //         );
+  //       });
+  //       cb();
+  //     });
   // },
 };

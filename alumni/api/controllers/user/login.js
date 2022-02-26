@@ -1,8 +1,7 @@
 module.exports = {
+  friendlyName: "Login",
 
-  friendlyName: 'Login',
-
-  description: 'Login user.',
+  description: "Login user.",
 
   inputs: {
     email: {
@@ -29,21 +28,21 @@ module.exports = {
       statusCode: 401,
       description: "Password do not match",
     },
-    emailNotConfirmed:{
+    emailNotConfirmed: {
       statusCode: 401,
-      description: "email not confirmed"
+      description: "email not confirmed",
     },
     operationalError: {
       statusCode: 400,
-      description: 'The request was formed properly'
-    }
+      description: "The request was formed properly",
+    },
   },
 
-
   fn: async function (inputs, exits) {
-
-    try{
-      const user = await User.findOne({email: inputs.email}).populate('userProfile');
+    try {
+      const user = await User.findOne({ email: inputs.email }).populate(
+        "userProfile"
+      );
 
       if (!user) {
         return exits.notAUser({
@@ -51,30 +50,29 @@ module.exports = {
         });
       }
 
-      if(user.emailStatus === "unconfirmed"){
+      if (user.emailStatus === "unconfirmed") {
         return exits.emailNotConfirmed({
-            message: 'Oops :) an error occurred',
-            error: "confirm your email address before logging in!",
-          }
-        )
+          message: "Oops :) an error occurred",
+          error: "confirm your email address before logging in!",
+        });
       }
 
       await sails.helpers.passwords
-      .checkPassword(inputs.password, user.password)
-      .intercept('incorrect', (error) => {
-        exits.passwordMismatch({ error: "Wrong password!" });
-      });
+        .checkPassword(inputs.password, user.password)
+        .intercept("incorrect", (error) => {
+          exits.passwordMismatch({ error: "Wrong password!" });
+        });
 
       const token = await sails.helpers.generateNewJwtToken(user.username);
 
       this.req.me = user;
 
       return exits.success({
-          message: `${user.username} has been logged in`,
-          data: user,
-          token: token,
+        message: `${user.username} has been logged in`,
+        data: user,
+        token: token,
       });
-    }catch(error){
+    } catch (error) {
       sails.log.error(error);
 
       if (error.isOperational) {
@@ -87,10 +85,10 @@ module.exports = {
       return exits.error({
         message: `Error logging in user ${inputs.username}`,
         error: error.message,
-  });
+      });
     }
-    
+
     // All done.
-    return; 
-  }
+    return;
+  },
 };
