@@ -1,0 +1,160 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '~@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$frontend-EAA-primary: mat.define-palette(mat.$indigo-palette);
+$frontend-EAA-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$frontend-EAA-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$frontend-EAA-theme: mat.define-light-theme((
+  color: (
+    primary: $frontend-EAA-primary,
+    accent: $frontend-EAA-accent,
+    warn: $frontend-EAA-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($frontend-EAA-theme);
+
+/* You can add global styles to this file, and also import other style files */
+$c-primary: rgb(5, 19, 67);
+$c-gold: rgb(192, 177, 147);
+$c-paleBlue: rgb(227, 230, 237);
+$paddingBtn : 0.39em;
+$radiusBtn: 0.3em;
+$radiusBtnLg: 0.5em;
+/* Fonts */
+.bg{
+    &--primary{
+        background-color: $c-primary;
+    }
+}
+
+.c{
+    &--primary{
+        color: $c-primary;
+    }
+
+    &--secondary{
+        color: $c-gold;
+    }
+}
+
+
+
+/* Buttons */
+.btn{
+    display: inline-block;
+    text-align: center;
+    transition: transform 200ms ease-in-out;
+    &--primary{
+        background: $c-primary;
+        color: white;
+        padding: $paddingBtn;
+        border-radius: $radiusBtn;
+        border: 1px solid $c-primary ;
+        &.btn--lg{
+            width: 15em;
+            height: 5em;
+            padding-top: 2em;
+            border-radius: $radiusBtnLg;
+        }
+        &.btn--md{
+            width: 10em;
+            height: 3.5em;
+            padding-top: 1em;
+            border-radius: $radiusBtn;
+        }
+        &.btn--straight{
+            border-radius: 0px;
+        }
+    }
+    &--outline-primary{
+        border-radius: $radiusBtn;
+        background: transparent;
+        color: $c-primary;
+        padding: $paddingBtn;
+        border: 2px solid $c-primary ;
+        &.btn--disabled{
+            border: 2px solid grey;
+            &:hover{
+                border: 2px solid grey;
+                background: grey;
+                color: $c-primary;
+            }
+        }
+        &:hover{
+            background-color: $c-primary;
+            color: white;
+        }
+        &.btn--lg{
+            width: 15em;
+            height: 5em;
+            padding-top: 2em;
+            border-radius: $radiusBtnLg;
+        }
+        &.btn--md{
+            width: 10em;
+            height: 3.5em;
+            padding-top: 1em;
+            border-radius: $radiusBtn;
+        }
+        &.btn--straight{
+            border-radius: 0px;
+        }
+    }
+    &--disabled{
+        background: grey;
+    }
+
+}
+body{
+    font-family: 'calibri','trebuchet ms', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif !important;
+}
+a.primary{
+    color: $c-primary;
+    text-decoration: none;
+    &:hover{
+        text-decoration: none;
+    }
+}
+
+.close{
+    cursor: pointer;
+}
+
+
+@media screen and (max-width: 800px) {
+    .hidden-sm{
+      display: none;
+    } 
+}
+@media screen and (max-width: 1149px) {
+    .hidden-md{
+      display: none;
+    } 
+}
+@media screen and (min-width: 1149px) {
+    .appear-md{
+      display: none;
+    } 
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

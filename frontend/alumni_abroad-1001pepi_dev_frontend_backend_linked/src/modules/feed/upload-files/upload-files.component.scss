@@ -1,0 +1,15 @@
+#image_file, #video_file, #document_file{
+    display: none;
+}
+
+@media screen and (max-width: 800px) {
+    .hidden-sm{
+      display: none;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .hidden-lg{
+      display: none;
+    }
+}

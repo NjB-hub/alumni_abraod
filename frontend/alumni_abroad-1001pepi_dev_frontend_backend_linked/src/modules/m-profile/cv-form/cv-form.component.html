@@ -1,0 +1,26 @@
+<h5 class="text-center mt-3 ">Professional informations</h5>
+<section class="container">
+   
+        <form [formGroup]="userForm" (ngSubmit)="onSubmitForm()" class="row">
+            <div class="left col-6">
+                <div class="my-1">Expertise</div>
+                <div class="form-group" *ngFor="let expertiseControl of getExpertises().controls; let i = index">
+                    <input type="text" class="form-control" [formControlName]="i">
+                </div>
+                <button type="button" class="btn btn-success" (click)="onAddExpertise()">Add an expertise</button>
+                <div class="my-1">Education</div>
+                
+                <button type="button" class="btn btn-success" (click)="onAddEducation()">Add an expertise</button>
+            </div>
+            <div class="right col-6">
+                <div class="text-center">
+                    <button type="submit"
+                    class="btn btn--outline-primary"
+                     >Sign up</button>
+                </div>
+            </div>  
+        </form>
+        
+   
+    
+</section>

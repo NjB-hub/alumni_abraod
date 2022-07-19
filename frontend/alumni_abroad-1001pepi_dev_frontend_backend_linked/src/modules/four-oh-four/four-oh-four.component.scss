@@ -1,0 +1,26 @@
+@import "../../styles/styles.scss";
+.container{
+    
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    //justify-content: center;
+}
+
+.e404{
+    font-size: 150px;
+    text-align: center;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+
+@media screen and (max-width: 800px) {
+    .e404{
+        font-size: 75px;
+        text-align: center;
+        padding-left: 0.2em;
+        padding-right: 0.2em;
+    }
+}

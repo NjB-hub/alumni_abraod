@@ -1,0 +1,89 @@
+<div class="sb-nav-fixed">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg--primary">
+        <!-- Navbar Brand-->
+        <a class="navbar-brand ps-3"><img src='../../assets/images/logoEAA.jpeg' width="50" height="50" alt="Logo du site" />EAA Admin</a>
+        <!-- Sidebar Toggle
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" (click)="sideBarToggle()"><i class="fas fa-bars"></i></button>
+        -->
+        
+        <!-- Navbar Search-->
+        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+            <div class="input-group">
+                <input class="form-control" type="text" placeholder="Search in dashboard..." />
+                <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+            </div>
+        </form>
+        <!-- Navbar-->
+        
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-3">
+            <li class="nav-item dropdown">
+                
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button"><i class="fas fa-bars fa-fw"></i></a>
+                <ul class="dropdown-menu" id="menuR">
+                    <li><a class="dropdown-item" ><i class="fa fa-sign-out-alt mr-1"></i>Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+        <div class="mr-5"></div>
+    </nav>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion bg--primary" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <div class="sb-sidenav-menu-heading text-white">Core</div>
+                        <a class="nav-link from-left" routerLinkActive="active-link" routerLink="/dashboard">
+                            <i class="fas fa-tachometer-alt"></i><span class="ml-1">Dashboard</span>
+                        </a>
+                        <div class="sb-sidenav-menu-heading text-white">Users' management</div>
+                        <a class="nav-link from-left" routerLinkActive="active-link" routerLink="/dashboard/users">
+                            <i class="fas fa-user"></i><span class="ml-1">Users</span>
+                        </a>
+                        <a class="nav-link" routerLinkActive="active-link" routerLink="/dashboard/signup-requests">
+                            <i class="fas fa-question-circle"></i><span class="ml-1">Sign up requests</span><app-number-circle [content]="32" [inNav]="true"></app-number-circle>
+                        </a>
+                        
+                        <div class="sb-sidenav-menu-heading text-white">Other</div>
+                        <a class="nav-link" routerLink="/dashboard/reports">
+                            <i class="fas fa-warning"></i><span class="ml-1">Reports</span><app-number-circle [content]="63" [inNav]="true"></app-number-circle>
+                        </a>
+                        <a class="nav-link" routerLink="/dashboard/statistics">
+                            <div class="sb-nav-link-icon"><i class="fas fa-chart-bar"></i></div>
+                            Statistics
+                        </a>
+                        <a class="nav-link" routerLink="/dashboard/help">
+                            <div class="sb-nav-link-icon"><i class="fas fa-hands-helping"></i></div>
+                            Help
+                        </a>
+                    </div>
+                </div>
+                <div class="sb-sidenav-footer text-white">
+                    <div class="small">Logged in as:</div>
+                    <p class="small">John Doe (@johndoe)</p>
+                </div>
+            </nav>
+        </div>
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+                    <h1 class="mt-4">Dashboard</h1>
+                    
+                    <router-outlet></router-outlet>
+                </div>
+            </main>
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy; ENSPY-Alumni Abroad 2022</div>
+                        <div>
+                            <a href="#">Privacy Policy</a>
+                            &middot;
+                            <a href="#">Terms &amp; Conditions</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    
+</div>

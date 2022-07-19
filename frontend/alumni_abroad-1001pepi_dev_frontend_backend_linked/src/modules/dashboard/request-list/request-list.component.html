@@ -1,0 +1,44 @@
+<ol class="breadcrumb mb-4 ">
+    <li class="breadcrumb-item active">Sign up requests</li>
+</ol>
+<div class="row">
+    <div class="col-3 d-flex align-items-center">
+        <span>All</span>
+        <app-number-circle [content]="167" [inNav]="false"></app-number-circle>
+    </div>
+    <div class="col-1 ml-5 sort">
+        <div class="dropdown">
+            <a class="nav-link dropdown-toggle c--primary" href="#" id="sortRequestButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button"><span>Sort by</span></a>
+            <div class="dropdown-menu bg-light" aria-labelledby="sortRequestButton">
+                <a class="dropdown-item" (click)="onSortName()">Name</a>
+                <div class="dropright">
+                    <a class="dropdown-item dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">Date</a>
+                    <div class="dropdown-menu bg-light">
+                        <a class="dropdown-item" (click)="onSortRecent()">Most recent</a>
+                        <a class="dropdown-item" (click)="onSortOldest()">Oldest</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        
+    </div>
+    <div class="col"></div>
+    <div class="col-3 search">
+        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+            <div class="input-group">
+                <input class="form-control" type="text" placeholder="Search in requests..." />
+                <button class="btn btn--primary" id="btnRequestSearch" type="button"><i class="fas fa-search"></i></button>
+            </div>
+        </form>
+    </div>
+</div>
+<hr/>
+<div class="row">
+    <div class="col-7">
+        <app-request-list-item></app-request-list-item>
+        <app-request-list-item></app-request-list-item>
+    </div>
+    
+</div>

@@ -1,0 +1,75 @@
+<div class="post mx-0 mx-sm-5 my-3 py-2 px-2 px-sm-4 shadow-sm">
+    <div class="post-head">
+        <div class="post-head--left">
+            <div class="mr-2 mb-1">
+                <div class=""> <img src="../../assets/images/logoEAA.jpeg" /></div>
+            </div>
+            <div>
+                <h5 class="post-auth m-0">{{ senderName }}</h5>
+               
+                <div class="m-0 p-0 post-id"><span class="small">{{ownerProfile.position}}</span><span class="small">{{ post.createdAt | date : 'medium' }}</span></div>
+            </div>
+        </div>
+        <div>
+            <span>...</span>
+        </div>
+    </div>
+    <div class=" mt-1">
+        <div class="row">
+            <div class="col-4 col-sm-2" *ngIf="post.category==='event'">
+                <i class="fa fa-fw fa-tasks mr-5">&nbsp;&nbsp;Event</i>
+            </div>
+            <div class="col-4 col-sm-2" *ngIf="post.category==='offer'">
+                <i class="fa fa-fw fa-handshake mr-5">&nbsp;&nbsp;Offer</i>
+            </div>
+            <div class="col-4 col-sm-2" *ngIf="post.category==='other'">
+                <i class="fa fa-fw fa-bullhorn mr-5">&nbsp;&nbsp;Post</i>
+            </div>
+            <div class="col">
+                {{ post.title }}
+            </div>
+        </div>
+        <div class="row" *ngIf="post.category==='event'">
+            <div class="col-4 col-sm-2">
+                <i class="fa fa-fw fa-map-marker mr-5">&nbsp;&nbsp;place</i>
+            </div>
+            <div class="col" *ngIf="post.event[0]">
+                {{ post.event[0].place }}
+            </div>
+        </div>
+        <div class="row" *ngIf="post.category==='offer'">
+            <div class="col-4 col-sm-2">
+                <i class="fa fa-fw fa-building mr-5">&nbsp;&nbsp;company</i>
+            </div>
+            <div class="col" *ngIf="post.offer[0]">
+                {{ post.offer[0].company }}
+            </div>
+        </div>
+        <div class="row" *ngIf="post.category==='event'">
+            <div class="col-3 col-sm-2">
+                <i class="fa fa-fw fa-calendar mr-5">&nbsp;&nbsp;date</i>
+            </div>
+            <div class="col">
+                {{ post.event[0].dateEvent | date : 'fullDate' }}
+            </div>
+        </div>
+        <div class="row" *ngIf="post.category==='event' && (post.event[0].start || post.event[0].end)">
+            <div class="col-3 col-sm-2" *ngIf="post.event[0].start">
+                <i class="fa fa-fw fa-clock mr-5">&nbsp;&nbsp;Start</i>
+            </div>
+            <div class="col" *ngIf="post.event[0].start">
+                {{ post.event[0].start }}
+            </div>
+
+            <div class="col-3 col-sm-2" *ngIf="post.event[0].end">
+                <i class="fa fa-fw fa-clock mr-5">&nbsp;&nbsp;End</i>
+            </div>
+            <div class="col" *ngIf="post.event[0].end">
+                {{ post.event[0].end }}
+            </div>
+        </div>
+    </div>
+    <p class="post-desc mt-3">
+        {{ descriptionStart}}<span id="dots_{{post.id}}">...</span><span id="more_{{post.id}}" class="more">{{descriptionEnd}}</span><a [routerLink]="['./']" fragment="more_{{post.id}}" (click)="showMore()" id="myBtn_{{post.id}}">Read more</a>
+    </p>
+</div>

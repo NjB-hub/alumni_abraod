@@ -1,0 +1,57 @@
+@import "../../../styles/styles.scss";
+.post{
+    border: 1px solid $c-primary;
+    position: relative;
+    margin-left: 1em;
+    .post-head{
+        border-bottom: 1px solid $c-primary;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        &--left{
+            display: flex;
+            align-items: center;
+        }
+        .post-id{
+            display: flex;
+            flex-direction: column;
+        }
+        img{
+            color: $c-primary;
+            border: 0.05em solid $c-primary;
+            width: 60px;
+            height: 60px;
+            border-radius: 30px;
+            
+        }
+        
+    }
+    .post-desc{
+        text-align: justify;
+        font-size: small;
+    }
+
+}
+@media screen and (max-width: 800px) {
+    .post{
+        .post-head{
+            img{
+                color: $c-primary;
+                border: 0.05em solid $c-primary;
+                width: 50px;
+                height: 50px;
+                border-radius: 25px;
+                
+            }
+            h5{
+                font-size: small;
+            }
+            .post-id{
+                font-size: smaller;
+            }
+        }
+    } 
+}
+
+.more {display: none;}

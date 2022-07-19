@@ -1,0 +1,24 @@
+@import '../../../styles/styles.scss';
+
+.content{
+    display: flex;
+    font-size: 1em;
+    font-weight: 700;
+    border-radius: 1em;
+    width: 2em;
+    height: 2em;
+    justify-content: center;
+    align-items: center;
+    &.inNav{
+        color: $c-primary;
+        background-color: white;
+        border: solid 0.05em white;
+        
+    }
+    &:not(.inNav){
+        color: #6c757d;
+        background-color: transparent;
+        border: solid .1em #6c757d;
+    }
+    
+}

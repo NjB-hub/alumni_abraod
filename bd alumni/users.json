@@ -1,0 +1,81 @@
+[{
+  "_id": {
+    "$oid": "620cfcd6cef31d0810e1501a"
+  },
+  "username": "tbrenda",
+  "email": "tbrenda@gmail.com",
+  "password": "$2a$10$j/CQgaQ7qQ.wTwKd2Fv8p.EeCrCohNGdZaaK37Nqab2hSYVd8QvVS",
+  "unreadPosts": true,
+  "isAdmin": false,
+  "created_at": 1645018325340,
+  "updated_at": 1646322055697,
+  "email_status": "confirmed",
+  "email_proof_token": "cNbqsDKV9141tmSl4GO2A",
+  "email_proof_token_expires_at": 1645104725336,
+  "password_reset_token": "",
+  "password_reset_token_expires_at": 0
+},{
+  "_id": {
+    "$oid": "620cfdeccef31d0810e15023"
+  },
+  "username": "loliyo",
+  "email": "loliyo@gmail.com",
+  "password": "$2a$10$.4iMVmq1TPxgFCe9aGL/HO4OvKzqD3W.GEtw8NHOikc6NDGOhS/Ge",
+  "unreadPosts": true,
+  "isAdmin": false,
+  "created_at": 1645018604366,
+  "updated_at": 1646322055709,
+  "email_status": "confirmed",
+  "email_proof_token": "5MWJK775SNxWgeqgCDu8FA",
+  "email_proof_token_expires_at": 1645105004365,
+  "password_reset_token": "",
+  "password_reset_token_expires_at": 0
+},{
+  "_id": {
+    "$oid": "620dfe7f6bf75342c40d0014"
+  },
+  "username": "arichou",
+  "email": "ari@gmail.com",
+  "password": "$2a$10$kuNiRYKyiCCWQZIXkprlV.Yd/LpIAxj.dF2nnJIGKbL8LfTB6owim",
+  "unreadPosts": true,
+  "isAdmin": false,
+  "created_at": 1645084286718,
+  "updated_at": 1646322055713,
+  "email_status": "confirmed",
+  "email_proof_token": "KJmYRVxc0PrBzgRGF3hIg",
+  "email_proof_token_expires_at": 1645170686714,
+  "password_reset_token": "",
+  "password_reset_token_expires_at": 0
+},{
+  "_id": {
+    "$oid": "6217676b96a16527c8ec1ee7"
+  },
+  "username": "donelw",
+  "email": "donel@gmail.com",
+  "password": "$2a$10$qmY4AGz/UeMROp9YnNOUFe6FicJxHggOifwpidblG9LDON3yqnfkK",
+  "unreadPosts": true,
+  "isAdmin": false,
+  "created_at": 1645700971113,
+  "updated_at": 1646322055715,
+  "email_status": "confirmed",
+  "email_proof_token": "csQNoqDJFT549IIvmyMf2g",
+  "email_proof_token_expires_at": 1645787371113,
+  "password_reset_token": "",
+  "password_reset_token_expires_at": 0
+},{
+  "_id": {
+    "$oid": "62199b24daf2b329943b6612"
+  },
+  "username": "rubens",
+  "email": "ruben@gmail.com",
+  "password": "$2a$10$zfKebhl5A.eMSpmFR8tXsOZNejP4pdswsUN3PvEbJmrKk3MpygwX2",
+  "unreadPosts": true,
+  "isAdmin": false,
+  "created_at": 1645845283757,
+  "updated_at": 1646322055719,
+  "email_status": "confirmed",
+  "email_proof_token": "OTvo2t3usPLMjhpoKdc4bA",
+  "email_proof_token_expires_at": 1645931683757,
+  "password_reset_token": "",
+  "password_reset_token_expires_at": 0
+}]

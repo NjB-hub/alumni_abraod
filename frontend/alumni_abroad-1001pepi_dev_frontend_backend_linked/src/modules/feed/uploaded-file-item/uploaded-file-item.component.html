@@ -1,0 +1,11 @@
+<div class="col mb-1" *ngIf="fileType==='image'">
+    <img id="myimage_{{id}}" src="" alt="image" width="150vw"><i class="fa fa-fw fa-close mr-3 clickable" (click)="delete()"></i>
+</div>
+
+<div class="col mb-1" *ngIf="fileType==='video'">
+    <video id="myvideo_{{id}}" src="" alt="video" width="150vw"></video><i class="fa fa-fw fa-close mr-3 clickable" (click)="delete()"></i>
+</div>
+
+<div class="col mb-1" *ngIf="fileType==='document'">
+    <p>{{ file.name }}&nbsp;&nbsp;<i class="fa fa-fw fa-close mr-3 clickable" (click)="delete()"></i></p>
+</div>

@@ -1,0 +1,53 @@
+<section class="container">
+    <app-m-alert></app-m-alert>
+    
+    <div class="row d-flex justify-content-center mt-4">
+        <div class="col col-sm-8">
+            <div class="card mb-0 mb-sm-3 mb-lg-0 shadow ">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <img src="../../assets/images/logoEAA.jpeg" width="45px" height="45px" class="ml-0 ml-sm-3"/>
+                        <button type="button" class="btn btn-light ml-3" data-toggle="collapse" href="#publishOtherForm" (click)="postOtherClicked()">{{ user.username }}, share something...</button>
+                    </h5>
+                    <hr class="bg--primary mt-0">
+                
+                    <div class="topost">
+                        <a role="button" class="btn btn--primary" id="postEventButton" data-toggle="collapse" href="#publishEventForm" (click)="postEventClicked()">Event</a>
+                        <a role="button" class="btn btn--primary" id="postOfferButton" data-toggle="collapse" href="#publishOfferForm" (click)="postOfferClicked()">Offer</a>
+                        <a role="button" class="btn btn--primary" id="postOtherButton" data-toggle="collapse" href="#publishOtherForm" (click)="postOtherClicked()">Other</a>
+                    </div>
+            
+          </div>
+        </div>          
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col sort">
+      <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button"><span>Sort by</span></a>
+      <div class="dropdown-menu bg-light">
+        <a class="dropdown-item" href="#">All</a>
+        <a class="dropdown-item" href="#">Update</a>
+        <a class="dropdown-item" href="#">Event</a>
+        <a class="dropdown-item" href="#">Offer</a>
+      </div>
+    </div>
+    <div class="col-lg-2 "></div>
+  </div>
+  <div class="collapse" id="publishEventForm">
+    <app-publish-event (postSent)="postSentAlert()"></app-publish-event>
+  </div>
+  <div class="collapse" id="publishOfferForm">
+    <app-publish-offer (postSent)="postSentAlert()"></app-publish-offer>
+  </div>
+  <div class="collapse" id="publishOtherForm">
+    <app-publish-other (postSent)="postSentAlert()"></app-publish-other>
+  </div>
+  
+  <div class="row d-flex justify-content-center">
+      <div class="col-12  col-sm-8">
+        <app-post-list></app-post-list>
+      </div>
+  </div>
+</section>
+ 

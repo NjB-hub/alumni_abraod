@@ -1,0 +1,28 @@
+<ol class="breadcrumb mb-4 ">
+    <li class="breadcrumb-item active">Statistics</li>
+</ol>
+<section class="container p-2">
+    <h4 class="bg-primary px-2 py-1 mb-3 text-white">Users</h4>
+    <h5>Summary</h5>
+    <div class="row justify-content-between">
+        <div class="col-12 col-lg-4 my-2">
+            <app-user-stat-card [amount]="30" [description]="'users online' | uppercase"></app-user-stat-card>
+        </div>
+        <div class="col-12 col-lg-4 my-2">
+            <app-user-stat-card [amount]="7" [description]="'administrators'| uppercase"></app-user-stat-card>
+        </div>
+        <div class="col-12 col-lg-4 my-2">
+            <app-user-stat-card [amount]="130" [description]="'all-type users' | uppercase"></app-user-stat-card>
+        </div>
+    </div>
+    <h5>Charts</h5>
+</section>
+<section class="container">
+    <h4 class="bg-secondary px-2 py-1 text-white">Posts</h4>
+</section>
+<section class="container">
+    <h4 class="bg-info px-2 text-white py-1">Sign up requests</h4>
+</section>
+<section class="container">
+    <h4 class="bg-danger px-2 text-white py-1">Reports</h4>
+</section>

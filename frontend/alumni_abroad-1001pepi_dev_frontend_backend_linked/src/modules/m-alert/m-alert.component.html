@@ -1,0 +1,6 @@
+<ngb-alert #selfClosingAlert *ngIf="successMessage" type="success" (closed)="successMessage = ''" class="text-center">
+  {{ successMessage }}
+</ngb-alert>
+
+<button class="btn btn-primary" id="toggleAlertButton" (click)="changeSuccessMessage()">Change message</button>
+ 

@@ -1,0 +1,28 @@
+[{
+  "_id": {
+    "$oid": "61b70eeb88f27715fc7b680a"
+  },
+  "company": "Huawei",
+  "expirationDate": "15 décembre",
+  "profileCertification": null,
+  "created_at": 1639386859764,
+  "updated_at": 1639387728838
+},{
+  "_id": {
+    "$oid": "61b70f1088f27715fc7b680b"
+  },
+  "company": "IBM comp",
+  "expirationDate": "4 mars",
+  "profileCertification": null,
+  "created_at": 1639386896368,
+  "updated_at": 1639390648964
+},{
+  "_id": {
+    "$oid": "61b70f2388f27715fc7b680c"
+  },
+  "company": "cisco",
+  "expirationDate": "4 mars 2030",
+  "profileCertification": null,
+  "created_at": 1639386915405,
+  "updated_at": 1639386915405
+}]
