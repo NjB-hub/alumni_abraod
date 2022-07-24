@@ -6,8 +6,8 @@
  */
 
 module.exports = {
+  tableName: "calendars",
   attributes: {
-    tableName: "calendars",
     savedEvent: {
       collection: "event",
       via: "inCalendar",
