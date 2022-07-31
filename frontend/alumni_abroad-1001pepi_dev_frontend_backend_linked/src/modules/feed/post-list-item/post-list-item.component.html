@@ -3,14 +3,14 @@
         <div class=" post-head d-flex align-items-center justify-content-between mb-3">
             <div class="d-flex align-items-center">
                 <div class="mr-2 mb-1">
-                    <div class=""> <img src="../../assets/images/logoEAA.jpeg" alt="{{senderName}}'s profile photo" /></div>
+                    <img src="../../assets/images/logoEAA.jpeg" alt="{{senderName}}'s profile photo" />
                 </div>
                 <div class="d-flex flex-column justify-content-center">
-                    <span class=" post-auth ">{{ senderName }}</span>
-                    <div class=" d-flex flex-column">
-                        <span class="small">{{ownerProfile.position}}</span>
-                        <span class="small">{{postedSince}}</span>
-                    </div>
+                    <span class=""><strong>{{ senderName }}</strong></span>
+                    
+                        <span class="small text-secondary p-0 m-0">{{ownerProfile.position}}</span>
+                        <span class="small text-secondary p-0 m-0">{{postedSince}}</span>
+                    
                 </div>
             </div>
             <div class="options">
@@ -19,27 +19,27 @@
                     <button type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn c--primary d-none d-lg-inline p-0"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button>
                     <button type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn c--primary d-lg-none p-0 mr-3"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" *ngIf="isSameUser">
-                        <button class="dropdown-item d-flex align-items-center" href="#"> 
+                        <button class="dropdown-item d-flex align-items-center" (click)="onSavePost()"> 
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark c--primary mr-1" viewBox="0 0 16 16"> <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/> </svg>  
                             <span> Save </span>
                             </button>
-                      <button class="dropdown-item" href="#">
+                      <button class="dropdown-item" (click)="onModifyPost()">
                         <i class="fas fa-pencil-alt c--primary  mr-1" aria-hidden="true"></i>Modify this post
                         </button>
-                      <button class="dropdown-item" href="#">
+                      <button class="dropdown-item" (click)="onDeletePost()">
                         <i class="fa fa-trash c--primary  mr-1" aria-hidden="true"></i>Delete this post
                         </button>
                     </div>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" *ngIf="!isSameUser">
-                        <button class="dropdown-item d-flex align-items-center" href="#"> 
+                        <button class="dropdown-item d-flex align-items-center" (click)="onSavePost()"> 
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark c--primary mr-1" viewBox="0 0 16 16"> <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/> </svg>  
                             <span> Save </span>
                             </button>
-                        <button class="dropdown-item" href="#">
+                        <button class="dropdown-item" (click)="onReportPost()">
                           <i class="fa fa-warning c--primary  mr-1" aria-hidden="true"></i>Report this post
                           </button>
                     </div>
-                  </div>
+                </div>
             </div>
         </div>
     

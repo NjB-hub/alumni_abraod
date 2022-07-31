@@ -15,6 +15,7 @@ import { AppModule } from '../../app/app.module';
 import { MAlertModule } from '../m-alert/m-alert.module';
 import { CommentListComponent } from './comment-list/comment-list.component';
 import { CommentListItemComponent } from './comment-list-item/comment-list-item.component';
+import { FocusMeDirective } from './directives/focus-me.directive';
 
 
 
@@ -29,7 +30,8 @@ import { CommentListItemComponent } from './comment-list-item/comment-list-item.
     PublishOfferComponent,
     PublishEventComponent,
     CommentListComponent,
-    CommentListItemComponent
+    CommentListItemComponent,
+    FocusMeDirective
   ],
   imports: [
     HttpClientModule,

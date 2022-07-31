@@ -30,7 +30,7 @@ export class PostListItemComponent implements OnInit {
   
   constructor() { }
 
-  differenceDates(today:number, otherDate:number): string{ 
+  public differenceDates(today:number, otherDate:number): string{ 
     //A function to calculate differences between dates and format the result as in LinkedIn
     
     var difference = (today - otherDate)/ (1000 * 3600 * 24);
@@ -66,6 +66,21 @@ export class PostListItemComponent implements OnInit {
     }
     return result;
   }
+
+  onSavePost():void{
+
+  }
+  onModifyPost():void{
+
+  }
+  onDeletePost():void{
+
+  }
+  onReportPost():void{
+    
+  }
+
+  
   ngOnInit(): void {
 
     this.fakeId = "commentList".concat("_").concat(this.fakeIndex.toString())

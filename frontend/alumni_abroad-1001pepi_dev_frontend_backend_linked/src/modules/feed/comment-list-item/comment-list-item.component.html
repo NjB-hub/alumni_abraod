@@ -1,1 +1,57 @@
-<p>comment-list-item works!</p>
+<div class="mr-1 mr-lg-4 comment my-2 p-0 d-flex">
+    <div class="mr-3 mr-lg-0 mt-2 comment-photo col-1 p-0">
+        <img src="../../assets/images/logoEAA.jpeg" alt="{{senderName}}'s profile photo" />
+    </div>
+    <div class="col pl-0 ml-0 ">
+        <div class="comment-content pt-2 pb-1 px-3">
+            <div class="d-flex align-items-center justify-content-between">
+                <div class="comment-author d-flex flex-column mb-0">
+                    <span class=" comment-author-name">
+                        <strong>{{ senderName }}</strong>
+                        <span *ngIf="isSameUser" class="bg--primary mx-1 px-1 text-white">Author</span>
+                    </span>
+                   <span class="small text-secondary">{{position}}</span> 
+                    
+                </div>  
+                <div class="comment-options d-flex">
+                    <div class="mr-2">
+                        <span class="small">{{postedSince}}</span>
+                    </div>
+                    <div class="dropleft">
+                        <button type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn c--primary d-none d-lg-inline p-0"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button>
+                        <button type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn c--primary d-lg-none p-0 "><i class="fa fa-ellipsis-v" aria-hidden="true"></i></button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" *ngIf="isSameUser">
+                            <button class="dropdown-item d-flex align-items-center" (click)="onReplyComment()">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-right c--primary" viewBox="0 0 16 16"> <path fill-rule="evenodd" d="M1.5 1.5A.5.5 0 0 0 1 2v4.8a2.5 2.5 0 0 0 2.5 2.5h9.793l-3.347 3.346a.5.5 0 0 0 .708.708l4.2-4.2a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 8.3H3.5A1.5 1.5 0 0 1 2 6.8V2a.5.5 0 0 0-.5-.5z"/> </svg>
+                                <span class="ml-1">Reply</span>
+                            </button>
+                            <button class="dropdown-item" (click)="onModifyComment">
+                            <i class="fas fa-pencil-alt c--primary  mr-1" aria-hidden="true"></i>Modify this comment
+                            </button>
+                            <button class="dropdown-item" (click)="onDeleteComment()">
+                            <i class="fa fa-trash c--primary  mr-1" aria-hidden="true"></i>Delete this comment
+                            </button>
+                        </div>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" *ngIf="!isSameUser">
+                            <button class="dropdown-item d-flex align-items-center" (click)="onReplyComment()">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-right c--primary" viewBox="0 0 16 16"> <path fill-rule="evenodd" d="M1.5 1.5A.5.5 0 0 0 1 2v4.8a2.5 2.5 0 0 0 2.5 2.5h9.793l-3.347 3.346a.5.5 0 0 0 .708.708l4.2-4.2a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 8.3H3.5A1.5 1.5 0 0 1 2 6.8V2a.5.5 0 0 0-.5-.5z"/> </svg>
+                                <span class="ml-1">Reply</span>
+                            </button>
+                            <button class="dropdown-item" (click)="onReportComment()">
+                                <i class="fa fa-warning c--primary  mr-1" aria-hidden="true"></i>Report this comment
+                            </button>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <div class="comment-description ">
+                {{content}}
+            </div>
+            
+        </div>
+        <div class="" *ngIf="hasReply">
+            <button class="btn btn-sm p-0 c--primary">See the replies (2)</button>
+        </div>
+    </div>
+       
+</div>
