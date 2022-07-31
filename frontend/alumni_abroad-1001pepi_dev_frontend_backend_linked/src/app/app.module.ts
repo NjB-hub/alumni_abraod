@@ -15,6 +15,10 @@ import { FooterIndexComponent } from '../modules/footer-index/footer-index.compo
 import { AuthGuardService } from '../modules/auth/services/auth-guard.service';
 import { AdminGuardService } from 'src/modules/auth/services/admin-guard.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CalendarModule } from 'angular-calendar';
+
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { DateAdapter } from 'angular-calendar';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })
   ],
   
   providers: [AuthService, AuthGuardService, AdminGuardService],

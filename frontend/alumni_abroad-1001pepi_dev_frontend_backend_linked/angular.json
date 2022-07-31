@@ -26,23 +26,24 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            
             "assets": [
               "src/favicon.ico",
               "src/assets",
               "src/assets/logoEAA.jpg"
             ],
             "styles": [
+              "node_modules/angular-calendar/css/angular-calendar.css",
               "src/styles/styles.scss",
               "./node_modules/bootstrap/dist/css/bootstrap.css",
               "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
               "node_modules/animate.css/animate.css"
             ],
-            "scripts": ["./node_modules/jquery/dist/jquery.min.js",
-                        "./node_modules/jquery/dist/jquery.js",
-                        "./node_modules/popper.js/dist/umd/popper.min.js",
-                        "./node_modules/bootstrap/dist/js/bootstrap.js"
-                        ]
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.min.js",
+              "./node_modules/jquery/dist/jquery.js",
+              "./node_modules/popper.js/dist/umd/popper.min.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -108,10 +109,9 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/angular-calendar/css/angular-calendar.css",
               "src/styles.scss",
               "https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
-
-
             ],
             "scripts": []
           }
