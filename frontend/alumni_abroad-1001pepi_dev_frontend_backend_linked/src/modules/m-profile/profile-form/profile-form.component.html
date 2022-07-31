@@ -73,7 +73,10 @@
                       <button type="button" class="btn btn-success" (click)="onAddHobby()">Ajouter un hobby</button>
                 </div> -->
                 <div class="row d-flex justify-content-center">
-                  <button type="submit" class=" btn--primary" [disabled]="profileForm.invalid">Submit</button>
+                  <button type="submit" 
+                  class=" btn--primary" 
+                  [ngClass]="{'btn--disabled':profileForm.invalid}"
+                  [disabled]="profileForm.invalid">Submit</button>
                 </div>
                 
               </form>

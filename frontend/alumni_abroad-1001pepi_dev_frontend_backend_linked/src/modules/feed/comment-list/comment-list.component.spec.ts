@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UserStatCardComponent } from './user-stat-card.component';
+import { CommentListComponent } from './comment-list.component';
 
-describe('UserStatCardComponent', () => {
-  let component: UserStatCardComponent;
-  let fixture: ComponentFixture<UserStatCardComponent>;
+describe('CommentListComponent', () => {
+  let component: CommentListComponent;
+  let fixture: ComponentFixture<CommentListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UserStatCardComponent ]
+      declarations: [ CommentListComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UserStatCardComponent);
+    fixture = TestBed.createComponent(CommentListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

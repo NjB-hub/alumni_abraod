@@ -14,7 +14,7 @@
                     class="form-control"
                     id="title"
                     formControlName="title" 
-                    placeholder="title"
+                    placeholder="Title"
                     required/>
                 </div>
                 <div class="mb-3 form-input">
@@ -22,22 +22,22 @@
                     class="form-control fontAwesome"
                     id="company"
                     formControlName="company" 
-                    placeholder="&#xf1ad; company"
+                    placeholder="Company"
                     required/>
                 </div>
                 <div class="form-group">
-                  <textarea class="form-control" formControlName="description" name="" id="description" rows="4" placeholder="description" required></textarea>
+                  <textarea class="form-control" formControlName="description" name="" id="description" rows="4" placeholder="Description" required></textarea>
                 </div>
                 <app-upload-files></app-upload-files>
                 <div class="text-center container">
                     <div class="row d-flex justify-content-around">
                         <button data-toggle="collapse" href="#publishOfferForm"
                         class="btn btn--outline-primary" (click)="cancel()"
-                        [ngClass]="{'btn--disabled':publishOfferForm.invalid}"
                         >Cancel</button>
 
                         <button type="submit"                                            
                         class="btn btn--outline-primary"
+                        [disabled]="publishOfferForm.invalid"
                         [ngClass]="{'btn--disabled':publishOfferForm.invalid}"
                         >Publish</button>
                     </div>

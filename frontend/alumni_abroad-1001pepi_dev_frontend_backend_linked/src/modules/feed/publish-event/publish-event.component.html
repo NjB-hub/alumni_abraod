@@ -22,52 +22,52 @@
                     class="form-control fontAwesome"
                     id="place"
                     formControlName="place" 
-                    placeholder="&#xf041; Place"
+                    placeholder="Place"
                     required/>
                 </div>
-                <div class="mb-3 form-input">
-                    <label for="date" class="form-label d-flex align-items-center col-3 mr-0">
-                        <i class="fa fa-fw fa-calendar mr-1 mr-sm-0"></i><span class="mt-1">Date</span>
+                <div class="mb-3 form-input ">
+                    <label for="date" class="form-label mr-1">
+                        Date
                     </label>
                     <input type="date"
-                    class="form-control col"
+                    class="form-control"
                     id="date"
                     formControlName="date" 
                     required/>
                 </div>
-                <div class="mb-3 form-input">
+                <div class="mb-3 form-input ">
                     
-                    <label for="start" class="form-label d-flex align-items-center col-3 col-sm-2 mr-1 mr-sm-3">
-                       <i class="fa fa-fw fa-clock mr-1 mr-sm-0"></i><span class="mt-1"> Start </span>
+                    <label for="start" class="form-label mr-1 ">
+                       Start
                     </label>
                     <input type="time"
-                    class="form-control col p-0"
+                    class="form-control  p-0"
                     id="start"
                     formControlName="start"
                     required/>
                     
-                    <label for="end" class="form-label d-flex align-items-center col-3 col-sm-2 mr-1">
-                        <i class="fa fa-fw fa-clock mr-1 mr-sm-0"></i> <span class="mt-1">End</span>
+                    <label for="end" class="form-label mx-1 ">
+                         End
                     </label>
                     <input type="time"
-                    class="form-control col p-0"
+                    class="form-control  p-0"
                     id="end"
                     formControlName="end"
                     required/>
                 </div>
                 <div class="form-group">
-                  <textarea class="form-control" formControlName="description" name="" id="description" rows="4" placeholder="description" required></textarea>
+                  <textarea class="form-control" formControlName="description" name="" id="description" rows="4" placeholder="Description" required></textarea>
                 </div>
                 <app-upload-files></app-upload-files>
                 <div class="text-center container">
                     <div class="row d-flex justify-content-around">
                         <button data-toggle="collapse" href="#publishEventForm"
                         class="btn btn--outline-primary" (click)="cancel()"
-                        [ngClass]="{'btn--disabled':publishEventForm.invalid}"
                         >Cancel</button>
 
                         <button type="submit" 
                         class="btn btn--outline-primary"
+                        [disabled]="publishEventForm.invalid"
                         [ngClass]="{'btn--disabled':publishEventForm.invalid}"
                         >Publish</button>
                     </div>

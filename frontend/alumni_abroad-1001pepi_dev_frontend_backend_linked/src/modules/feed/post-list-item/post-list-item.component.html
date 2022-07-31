@@ -1,75 +1,159 @@
-<div class="post mx-0 mx-sm-5 my-3 py-2 px-2 px-sm-4 shadow-sm">
-    <div class="post-head">
-        <div class="post-head--left">
-            <div class="mr-2 mb-1">
-                <div class=""> <img src="../../assets/images/logoEAA.jpeg" /></div>
+<section class="container my-3">
+    <div class="post mx-0 mx-lg-5 p-2 px-lg-4">
+        <div class=" post-head d-flex align-items-center justify-content-between mb-3">
+            <div class="d-flex align-items-center">
+                <div class="mr-2 mb-1">
+                    <div class=""> <img src="../../assets/images/logoEAA.jpeg" alt="{{senderName}}'s profile photo" /></div>
+                </div>
+                <div class="d-flex flex-column justify-content-center">
+                    <span class=" post-auth ">{{ senderName }}</span>
+                    <div class=" d-flex flex-column">
+                        <span class="small">{{ownerProfile.position}}</span>
+                        <span class="small">{{postedSince}}</span>
+                    </div>
+                </div>
             </div>
-            <div>
-                <h5 class="post-auth m-0">{{ senderName }}</h5>
-               
-                <div class="m-0 p-0 post-id"><span class="small">{{ownerProfile.position}}</span><span class="small">{{ post.createdAt | date : 'medium' }}</span></div>
+            <div class="options">
+                
+                <div class="dropleft">
+                    <button type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn c--primary d-none d-lg-inline p-0"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button>
+                    <button type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn c--primary d-lg-none p-0 mr-3"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" *ngIf="isSameUser">
+                        <button class="dropdown-item d-flex align-items-center" href="#"> 
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark c--primary mr-1" viewBox="0 0 16 16"> <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/> </svg>  
+                            <span> Save </span>
+                            </button>
+                      <button class="dropdown-item" href="#">
+                        <i class="fas fa-pencil-alt c--primary  mr-1" aria-hidden="true"></i>Modify this post
+                        </button>
+                      <button class="dropdown-item" href="#">
+                        <i class="fa fa-trash c--primary  mr-1" aria-hidden="true"></i>Delete this post
+                        </button>
+                    </div>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" *ngIf="!isSameUser">
+                        <button class="dropdown-item d-flex align-items-center" href="#"> 
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark c--primary mr-1" viewBox="0 0 16 16"> <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"/> </svg>  
+                            <span> Save </span>
+                            </button>
+                        <button class="dropdown-item" href="#">
+                          <i class="fa fa-warning c--primary  mr-1" aria-hidden="true"></i>Report this post
+                          </button>
+                    </div>
+                  </div>
             </div>
         </div>
-        <div>
-            <span>...</span>
+    
+        
+        <div class="row px-3">
+            <div class="col-6 pl-1 bg-success text-white"  *ngIf="post.category==='event'">
+                <i class="fa fa-clock mr-1" aria-hidden="true"></i>
+                <span>Event</span> 
+            </div>
+            <div class="col-6 pl-1 bg-danger text-white"  *ngIf="post.category==='offer'">
+                <i class="fa fa-fw fa-handshake mr-1" aria-hidden="true"></i>
+                <span>Offer</span> 
+            </div>
+            <div class="col-6 pl-1 bg-info text-white"  *ngIf="post.category==='other'">
+                <i class="fa fa-fw fa-bullhorn mr-1" aria-hidden="true"></i>
+                <span>Update</span> 
+            </div>
+            
         </div>
-    </div>
-    <div class=" mt-1">
         <div class="row">
-            <div class="col-4 col-sm-2" *ngIf="post.category==='event'">
-                <i class="fa fa-fw fa-tasks mr-5">&nbsp;&nbsp;Event</i>
-            </div>
-            <div class="col-4 col-sm-2" *ngIf="post.category==='offer'">
-                <i class="fa fa-fw fa-handshake mr-5">&nbsp;&nbsp;Offer</i>
-            </div>
-            <div class="col-4 col-sm-2" *ngIf="post.category==='other'">
-                <i class="fa fa-fw fa-bullhorn mr-5">&nbsp;&nbsp;Post</i>
-            </div>
             <div class="col">
-                {{ post.title }}
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-right c--primary" viewBox="0 0 16 16"> <path fill-rule="evenodd" d="M1.5 1.5A.5.5 0 0 0 1 2v4.8a2.5 2.5 0 0 0 2.5 2.5h9.793l-3.347 3.346a.5.5 0 0 0 .708.708l4.2-4.2a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 8.3H3.5A1.5 1.5 0 0 1 2 6.8V2a.5.5 0 0 0-.5-.5z"/> </svg>
+                <span class="ml-1">{{ post.title | titlecase }}</span>
             </div>
         </div>
         <div class="row" *ngIf="post.category==='event'">
-            <div class="col-4 col-sm-2">
-                <i class="fa fa-fw fa-map-marker mr-5">&nbsp;&nbsp;place</i>
+            <div class="col-4 d-flex align-items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pin-map mb-1 mr-1 c--primary" viewBox="0 0 16 16"> <path fill-rule="evenodd" d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8l3-4z"/> <path fill-rule="evenodd" d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"/> </svg>
+                <span class="ml-1">At</span>
             </div>
             <div class="col" *ngIf="post.event[0]">
-                {{ post.event[0].place }}
+                {{ post.event[0].place | titlecase }}
             </div>
         </div>
         <div class="row" *ngIf="post.category==='offer'">
-            <div class="col-4 col-sm-2">
-                <i class="fa fa-fw fa-building mr-5">&nbsp;&nbsp;company</i>
+            <div class="col-4 d-flex align-items-center ">
+                <i class="fa fa-building c--primary" aria-hidden="true"></i>
+                <span class="ml-1">Compagny</span>
             </div>
             <div class="col" *ngIf="post.offer[0]">
-                {{ post.offer[0].company }}
+                {{ post.offer[0].company | titlecase}}
             </div>
         </div>
         <div class="row" *ngIf="post.category==='event'">
-            <div class="col-3 col-sm-2">
-                <i class="fa fa-fw fa-calendar mr-5">&nbsp;&nbsp;date</i>
+            <div class="col-4  d-flex align-items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar4-event mb-1 mr-1 c--primary" viewBox="0 0 16 16"> <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v1h14V3a1 1 0 0 0-1-1H2zm13 3H1v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V5z"/> <path d="M11 7.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z"/> </svg>
+                 <span class="ml-1">Date</span>
             </div>
             <div class="col">
                 {{ post.event[0].dateEvent | date : 'fullDate' }}
             </div>
         </div>
-        <div class="row" *ngIf="post.category==='event' && (post.event[0].start || post.event[0].end)">
-            <div class="col-3 col-sm-2" *ngIf="post.event[0].start">
-                <i class="fa fa-fw fa-clock mr-5">&nbsp;&nbsp;Start</i>
+        <div class="row" *ngIf="post.category==='event' && (post.event[0].start)">
+            <div class="col-4 " *ngIf="post.event[0].start">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock mb-1 mr-1 c--primary" viewBox="0 0 16 16"> <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/> <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/> </svg>
+                <span class="ml-1">Start</span>
             </div>
             <div class="col" *ngIf="post.event[0].start">
                 {{ post.event[0].start }}
             </div>
-
-            <div class="col-3 col-sm-2" *ngIf="post.event[0].end">
-                <i class="fa fa-fw fa-clock mr-5">&nbsp;&nbsp;End</i>
+        </div>
+        <div class="row" *ngIf="post.category==='event' && (post.event[0].end)">
+            <div class="col-4 " *ngIf="post.event[0].end">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock mb-1 mr-1 c--primary" viewBox="0 0 16 16"> <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/> <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/> </svg>
+                <span class="ml-1">End</span>
             </div>
             <div class="col" *ngIf="post.event[0].end">
                 {{ post.event[0].end }}
             </div>
         </div>
+        
+        <p class="post-desc text-justify mt-3">
+            {{ descriptionStart}}<span id="dots_{{post.id}}">...</span><span id="more_{{post.id}}" class="more">{{descriptionEnd}}</span><a [routerLink]="['./']" fragment="more_{{post.id}}" (click)="showMore()" id="myBtn_{{post.id}}">Read more</a>
+        </p>
     </div>
-    <p class="post-desc mt-3">
-        {{ descriptionStart}}<span id="dots_{{post.id}}">...</span><span id="more_{{post.id}}" class="more">{{descriptionEnd}}</span><a [routerLink]="['./']" fragment="more_{{post.id}}" (click)="showMore()" id="myBtn_{{post.id}}">Read more</a>
-    </p>
-</div>
+    <div class="comment mx-0 mx-lg-5 px-4">
+        <div class="row align-items-center justify-content-between py-2">
+            <div >
+                <button class="btn text-primary"
+                    type="button" 
+                    data-toggle="collapse"
+                    [attr.data-target]="'#'+fakeId"
+                    aria-expanded="false"
+                    [attr.aria-controls]="fakeId">
+                        <i class="far fa-comment-dots"></i>
+                    <span class="d-none d-lg-inline ml-1" >Comment</span>
+                </button>
+                
+            </div>
+            <div>
+                <button class="btn text-primary"
+                    type="button" 
+                    data-toggle="collapse"
+                    [attr.data-target]="'#'+fakeId"
+                    aria-expanded="false"
+                    [attr.aria-controls]="fakeId">
+                
+                    {{numberComments}} 
+                    <span *ngIf="numberComments > 1">Comments </span>
+                    <span *ngIf="numberComments == 1">Comment </span>
+                </button>
+                <ng-template #noCommentBlock>
+                    <span >No comments yet</span>
+                </ng-template>
+                
+                  
+            </div>
+        </div>
+        <div class="row">
+            <div class="collapse w-100 " [attr.id]="fakeId">
+                <app-comment-list></app-comment-list>
+            </div>
+        </div>
+    </div>
+    
+</section>
+

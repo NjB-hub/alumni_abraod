@@ -1,0 +1,20 @@
+@import '../../../styles/styles.scss';
+img{
+    color: $c-primary;
+    border: 0.05em solid $c-primary;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    
+} 
+.btn-submit{
+    position: relative;
+    left: -8%;
+}
+
+@media screen and (max-width: 992px ){
+    .btn-submit{
+        position: relative;
+        left: -15%;
+    }
+}

@@ -20,7 +20,14 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { ReportDialogComponent } from './report-dialog/report-dialog.component';
 import { ReportListItemComponent } from './report-list-item/report-list-item.component';
 import { LogOutDialogComponent } from './log-out-dialog/log-out-dialog.component';
-import { UserStatCardComponent } from './user-stat-card/user-stat-card.component';
+
+
+import { GenericStatCardComponent } from './generic-stat-card/generic-stat-card.component';
+import { HelpComponent } from './help/help.component';
+import { DashboardUserGuideComponent } from './dashboard-user-guide/dashboard-user-guide.component';
+import { BugsReportedComponent } from './bugs-reported/bugs-reported.component';
+import { SupportComponent } from './support/support.component';
+import { DeveloperCardComponent } from './developer-card/developer-card.component';
 
 @NgModule({
   declarations: [
@@ -39,12 +46,17 @@ import { UserStatCardComponent } from './user-stat-card/user-stat-card.component
     ReportDialogComponent,
     ReportListItemComponent,
     LogOutDialogComponent,
-    UserStatCardComponent
+    GenericStatCardComponent,
+    HelpComponent,
+    DashboardUserGuideComponent,
+    BugsReportedComponent,
+    SupportComponent,
+    DeveloperCardComponent
   ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    MatDialogModule
+    MatDialogModule,
   ]
 })
 export class DashboardModule { }

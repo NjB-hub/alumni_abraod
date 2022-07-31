@@ -1,15 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import {  FormBuilder, Validators, FormGroup, AbstractControl } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
-
 
 @Component({
   selector: 'app-forgot-password',
   templateUrl: './forgot-password.component.html',
   styleUrls: ['./forgot-password.component.scss']
 })
+
+
+
 export class ForgotPasswordComponent implements OnInit {
+  onMobile:boolean = false;
+
+
+  @HostListener('window:resize')
+  onResize(){
+    if(window.innerWidth < 992){
+      this.onMobile = true;
+    } else{
+      this.onMobile = false;
+    }
+  }
   forgotPasswordForm : FormGroup = this.fb.group({ });
   
   constructor(private fb: FormBuilder,
@@ -41,6 +54,7 @@ export class ForgotPasswordComponent implements OnInit {
     }
 
     ngOnInit(): void {
+      this.onResize()
       this.initForm();
     }
 
