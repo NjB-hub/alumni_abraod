@@ -1,22 +1,43 @@
-<section class="container m-2 ">
-    <div class="row align-items-center ">
-        <div class="mr-3 mr-lg-1 col-1 p-0"> <img src="../../assets/images/logoEAA.jpeg" alt="{{authorName}}'s profile photo" /></div>
-        <form #commentForm="ngForm" (ngSubmit)="onSubmitForm(commentForm)"
-            class="d-flex align-items-center p-0 col">
-             <input type="text" 
-                name="content"
-                class="form-control"
-                required
-                placeholder="Type a comment..."
-                minlength="4"
-                [(ngModel)]="content"
-                /> 
-                <button type="submit" 
-                class="btn text-primary btn-submit"
-                >
-                    <i class="fa fa-paper-plane" ></i>
-                </button>                         
-        </form> 
+<section class="container mb-2 ">
+    <div class="row mb-2">
+        <div class="col p-0">
+            <button class="btn text-primary m-0" 
+            *ngIf="!isCommentsVisible" 
+            (click)="toggleIsVisible()">See the comments</button>
+            <button class="btn text-primary"
+            *ngIf="isCommentsVisible"
+            (click)="toggleIsVisible()">Hide the comments</button>
+        </div>
     </div>
-    <div class="row flex-column "></div>
+    <div class="row mb-3 flex-column" *ngIf="isCommentsVisible">
+        <app-comment-list-item [hasReply]="true"></app-comment-list-item>
+        <div class="row mt-0 ml-5 mr-1 flex-column">
+            <app-comment-list-item></app-comment-list-item> 
+            <app-comment-list-item></app-comment-list-item> 
+            <app-comment-list-item></app-comment-list-item>
+        </div>
+        <app-comment-list-item></app-comment-list-item> 
+    </div>
+    <div class="row flex-column">
+        <span class="small text-secondary ml-1" *ngIf="onReplying">Replying to John Doe</span>
+        <div class="d-flex align-items-center ">
+            <div class="mr-4 mr-lg-1 col-1 p-0"> <img src="../../assets/images/logoEAA.jpeg" alt="{{authorName}}'s profile photo" /></div>
+            <form #commentForm="ngForm" (ngSubmit)="onSubmitForm(commentForm)"
+                class="d-flex align-items-center p-0 col">
+                 <input type="text" 
+                    name="content"
+                    class="form-control"
+                    required
+                    placeholder="Type a comment..."
+                    minlength="4"
+                    #commentInput/> 
+                    <button type="submit" 
+                    class="btn c--primary btn-submit"
+                    >
+                        <i class="fa fa-paper-plane" ></i>
+                    </button>                         
+            </form> 
+        </div>
+    </div>
+    
 </section>

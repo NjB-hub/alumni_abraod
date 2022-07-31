@@ -1,0 +1,30 @@
+@import "../../../styles/styles.scss";
+
+.comment{
+    
+    &-photo{
+        img{
+            color: $c-primary;
+            border: 0.05em solid $c-primary;
+            width: 30px;
+            height: 30px;
+            border-radius: 15px;
+            
+        } 
+        
+    }
+    &-content{
+        text-align: justify;
+        background-color: #E3E6ED;
+        border: 1px solid transparent;
+        border-radius: 0 1em 1em 1em ;
+        .comment-author-name{
+            font-size: .8em;
+        }
+        .comment-description{
+            
+            word-wrap:break-word;
+        }
+    }
+    
+}

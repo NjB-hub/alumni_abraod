@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -6,13 +6,23 @@ import { NgForm } from '@angular/forms';
   templateUrl: './comment-list.component.html',
   styleUrls: ['./comment-list.component.scss']
 })
-export class CommentListComponent implements OnInit {
+export class CommentListComponent implements OnInit,OnDestroy {
 
   @Input() authorName:string='John Doe';
-  content:string;
+  @ViewChild('commentInput') commentInputElement!: ElementRef<HTMLInputElement>
+  isCommentsVisible:boolean = false;
+  onReplying:boolean = false //if the comment is a reply
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  focusComment():void{
+    this.commentInputElement.nativeElement.focus()
+  }
+
+  toggleIsVisible():void{
+    this.isCommentsVisible = !this.isCommentsVisible
   }
 
   onSubmitForm(form:NgForm):void{
@@ -20,6 +30,10 @@ export class CommentListComponent implements OnInit {
     var comment = form.value.content;
     console.log(comment)
     
+  }
+
+  ngOnDestroy():void{
+    this.onReplying = false
   }
 
 }
