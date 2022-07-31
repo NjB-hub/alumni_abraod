@@ -1,0 +1,16 @@
+<div id="login-container" class="my-3">
+    <div class="profile-img"></div>
+    <h1 class="ml-4">
+      {{firstName}}
+    </h1>
+    <a class="text-info" routerLink="">@{{username}}</a>
+    <p>{{promo}}</p>
+    <div class="description">
+        {{description}}   
+    </div>
+    <div class="social">
+      <a [href]="github">GitHub</a>
+      <a [href]="'mailto:' +  email">Email</a>
+      <a [href]="linkedin">LinkedIn</a>
+    </div>
+  </div>

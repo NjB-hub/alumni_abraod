@@ -1,0 +1,21 @@
+<ol class="breadcrumb mb-4 ">
+    <li class="breadcrumb-item active">Help</li>
+</ol>
+<section class="container">
+    <div class="row justify-content-center">
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary active" (click)="onView('dashboard-user-guide')">
+              <input type="radio" name="options" id="option1" autocomplete="off" checked> Dashboard user guide
+            </label>
+            <label class="btn btn-secondary" (click)="onView('bugs-reported')">
+              <input type="radio" name="options" id="option2" autocomplete="off"> Bugs reported
+            </label>
+            <label class="btn btn-secondary" (click)="onView('support')">
+              <input type="radio" name="options" id="option3" autocomplete="off"> Support
+            </label>
+          </div>
+    </div>
+</section>
+<section class="container p-2">
+    <router-outlet></router-outlet>
+</section>

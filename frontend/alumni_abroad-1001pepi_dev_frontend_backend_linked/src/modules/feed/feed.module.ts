@@ -13,6 +13,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PostListItemComponent } from './post-list-item/post-list-item.component';
 import { AppModule } from '../../app/app.module';
 import { MAlertModule } from '../m-alert/m-alert.module';
+import { CommentListComponent } from './comment-list/comment-list.component';
+import { CommentListItemComponent } from './comment-list-item/comment-list-item.component';
 
 
 
@@ -25,7 +27,9 @@ import { MAlertModule } from '../m-alert/m-alert.module';
     UploadedFileItemComponent,
     PublishOtherComponent,
     PublishOfferComponent,
-    PublishEventComponent
+    PublishEventComponent,
+    CommentListComponent,
+    CommentListItemComponent
   ],
   imports: [
     HttpClientModule,

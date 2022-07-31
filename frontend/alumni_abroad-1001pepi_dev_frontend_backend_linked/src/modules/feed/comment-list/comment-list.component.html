@@ -1,0 +1,22 @@
+<section class="container m-2 ">
+    <div class="row align-items-center ">
+        <div class="mr-3 mr-lg-1 col-1 p-0"> <img src="../../assets/images/logoEAA.jpeg" alt="{{authorName}}'s profile photo" /></div>
+        <form #commentForm="ngForm" (ngSubmit)="onSubmitForm(commentForm)"
+            class="d-flex align-items-center p-0 col">
+             <input type="text" 
+                name="content"
+                class="form-control"
+                required
+                placeholder="Type a comment..."
+                minlength="4"
+                [(ngModel)]="content"
+                /> 
+                <button type="submit" 
+                class="btn text-primary btn-submit"
+                >
+                    <i class="fa fa-paper-plane" ></i>
+                </button>                         
+        </form> 
+    </div>
+    <div class="row flex-column "></div>
+</section>
