@@ -1,0 +1,49 @@
+{
+  "name": "enspy-alumni-api",
+  "private": true,
+  "version": "0.0.0",
+  "description": "a Sails application",
+  "keywords": [],
+  "dependencies": {
+    "@sailshq/lodash": "^3.10.4",
+    "@sendgrid/mail": "^7.4.7",
+    "async": "^3.2.3",
+    "gridfs-stream": "^1.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
+    "multer": "^1.4.4",
+    "multer-gridfs-storage": "^5.0.2",
+    "node-uuid": "^1.4.8",
+    "nodemailer": "^6.6.5",
+    "nodemailer-express-handlebars": "^4.0.0",
+    "nodemailer-sendgrid": "^1.0.3",
+    "sails": "^1.5.2",
+    "sails-hook-organics": "^2.2.0",
+    "sails-hook-orm": "^3.0.2",
+    "sails-hook-sockets": "^2.0.0",
+    "sails-hook-uploads": "^0.4.3",
+    "sails-mongo": "^2.0.0",
+    "skipper-gridfs": "^1.0.2"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.182",
+    "eslint": "5.16.0"
+  },
+  "scripts": {
+    "start": "NODE_ENV=production node app.js",
+    "test": "npm run lint && npm run custom-tests && echo 'Done.'",
+    "lint": "./node_modules/eslint/bin/eslint.js . --max-warnings=0 --report-unused-disable-directives && echo '✔  Your .js files look good.'",
+    "custom-tests": "echo \"(No other custom tests yet.)\" && echo",
+    "dev": "export NODE_ENV=development && nodemon --ignore 'tmp/*' app.js && exit 0"
+  },
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/pepi/enspy-alumni-api.git"
+  },
+  "author": "pepi",
+  "license": "",
+  "engines": {
+    "node": "^16.10"
+  }
+}
