@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   //backend_API_URL: "http://localhost:1337/",
   OFFLINE_MESSAGE_ERROR: "You are currently off-line. Check your internet connexion.",
-  backend_API_URL: "http://ec2-44-204-66-13.compute-1.amazonaws.com:1337/",
+  backend_API_URL: "https://enspyalumniabroadapi.herokuapp.com/",
   periodCheckNewPost: 3000,
 };
 
