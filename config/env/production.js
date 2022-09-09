@@ -251,7 +251,7 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
     onlyAllowOrigins: [
-      "https://enspyalumniabroadapi.herokuapp.com",
+      "https://enspyalumniabroad.herokuapp.com",
     ],
 
 
