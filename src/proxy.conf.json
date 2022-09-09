@@ -1,0 +1,6 @@
+{
+    "/api": {
+        "target": "https://enspyalumniabroadapi.herokuapp.com/",
+        "secure": false
+    }
+}
