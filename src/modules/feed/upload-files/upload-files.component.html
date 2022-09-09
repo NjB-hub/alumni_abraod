@@ -1,0 +1,22 @@
+<div class="container mt-1 mb-4">
+    <div class="row mb-2 mb-sm-3 overflow-auto" id="files" style="max-height: 15vh;">
+        <app-uploaded-file-item *ngFor="let image of imgLinks; index as i;" [fileType]="'image'" [fileLink]="image" [id]="i"></app-uploaded-file-item>
+        <app-uploaded-file-item *ngFor="let video of videoLinks; index as i;" [fileType]="'video'" [fileLink]="video" [id]="i"></app-uploaded-file-item>
+        <app-uploaded-file-item *ngFor="let document of documents; index as i;" [fileType]="'document'" [file]="document" [id]="i"></app-uploaded-file-item>
+    </div>
+    <div class="row alert-light">
+        <div class="col-5 col-sm-6">
+            <p class="font-weight-bold text-center d-none d-lg-block">Add files to your post</p>
+            <p class="font-weight-bold text-center d-block d-lg-none">Add files</p>
+        </div>
+        <div class="col col-sm-6">
+            <span class="mr-2 mr-sm-4 btn--outline-primary" (click)="uploadImage()"><i class="fa fa-fw fa-camera" title="image"></i></span>
+            <span class="mr-2 mr-sm-4 btn--outline-primary" (click)="uploadVideo()"><i class="fa fa-fw fa-video" title="video"></i></span>
+            <span class="mr-0 mr-sm-4 btn--outline-primary" (click)="uploadDocument()"><i class="fa fa-fw fa-file" title="document"></i></span>
+        </div>
+    </div>
+</div>
+
+<input type="file" id="image_file" accept="image/*" multiple="multiple">
+<input type="file" id="video_file" accept="video/*" multiple="multiple">
+<input type="file" id="document_file" multiple="multiple">

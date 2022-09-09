@@ -1,0 +1,26 @@
+@import "../../../styles/styles.scss";
+.row{
+    display: flex;
+    justify-content: center;
+}
+
+.form{
+    label{
+        flex-grow: 1;
+    }
+    input{
+        flex-grow: 2;
+    }
+    &-input{
+        display: flex;
+        align-items: center;
+    }
+    &-group{
+        display: flex;
+        align-items: center;
+    }
+}
+
+.fontAwesome {
+    font-family: Helvetica, 'FontAwesome', sans-serif;
+}

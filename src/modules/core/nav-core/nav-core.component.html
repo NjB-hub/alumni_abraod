@@ -1,0 +1,23 @@
+<nav class="nav">
+    <a class="navbar-brand ">
+        <img src='assets/images/logoEAA.jpeg' width="50" height="50" alt="EAA's logo" />
+        <span class="d-none d-lg-inline">ENSPY-Alumni Abroad</span>   
+    </a>
+    
+    <a class="nav-link fromleft" routerLinkActive="active-link" routerLink="/core/feed" (click)="emitPosts()"><i class="fa fa-fw fa-home mr-1"></i><span class="d-none d-lg-inline">Feed</span><i class="fa new text-danger fa-circle" *ngIf="newPost"></i></a>
+    <a class="nav-link fromleft" routerLinkActive="active-link" routerLink="/core/search"><i class="fa fa-fw fa-search mr-1"></i> <span class="d-none d-lg-inline">Search</span></a>
+    <a class="nav-link fromleft" routerLinkActive="active-link" routerLink="/core/notifications"><i class="fa fa-fw fa-bell mr-1"></i> <span class="d-none d-lg-inline">Notifications</span></a>
+    <a class="nav-link fromleft" routerLinkActive="active-link" routerLink="/core/calendar"><i class="fa fa-fw fa-calendar mr-1"></i><span class="d-none d-lg-inline">Calendar</span> </a>
+    
+    <div class="nav--right">
+      <div class="dropdown">
+        <a class="nav-link dropdown-toggle" routerLinkActive="active-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button"><i class="fas fa-cog"></i><span class="d-none d-lg-inline">Settings</span></a>
+            <div class="dropdown-menu menu">
+              <a class="dropdown-item fromleft" routerLink="/core/profile/viewprofile"><i class="fa fas fa-user mr-1"></i>Profile</a>
+              <a class="dropdown-item fromleft" href="#"><i class="fa fas fa-cog mr-1"></i>Settings</a>
+              <a class="dropdown-item fromleft" role="button" (click)="openDialog()"><i class="fa fas fa-sign-out-alt mr-1"></i>Log out</a>
+            </div>
+        </div> 
+    </div>
+    
+</nav>

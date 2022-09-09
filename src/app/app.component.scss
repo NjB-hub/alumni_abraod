@@ -1,0 +1,7 @@
+@import "../styles/styles.scss";
+@import '~ngx-toastr/toastr';
+@media screen and (max-width: 800px) {
+    .hidden-sm{
+      display: none;
+    }
+  } 

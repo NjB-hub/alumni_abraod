@@ -1,0 +1,46 @@
+@import "../../../styles/styles.scss";
+.row{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.form{
+    background-color: white;   
+}
+.mb-3{
+    position: relative;
+    .passwordDiv{
+        position:relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        input{
+            position: relative;
+            
+        }
+    }
+}
+
+a{
+    color: $c-primary;
+}
+.quote{
+    margin-top: 1em;
+    color: $c-primary;
+}
+
+@media screen and (max-width: 800px) {
+    .row{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .row .form{
+       margin-top: 2em;
+       margin-bottom: 3em;
+    }
+    .quote{
+        display: none;
+    }
+}

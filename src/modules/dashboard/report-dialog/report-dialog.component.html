@@ -1,0 +1,25 @@
+<section class="container p-3">
+    <div class="row justify-content-between">
+        <h3 mat-dialog-title ><i class="fas fa-question-circle mr-1"></i>Report</h3>
+        <span (click)="onCloseClick()" class="close"><i class="fas fa-close"></i></span>
+    </div>
+    
+    <hr/>
+    
+    <div mat-dialog-content class="">
+        <p>Type: <span class="report-title text-white px-2"
+            [ngClass]="{'bg-success':type == 'comment', 'bg-primary':type == 'post', 'bg-danger':type == 'profile'  }">
+            <i class="fas"
+        [ngClass]="{'fa-comment':type == 'comment', 'fa-newspaper':type == 'post', 'fa-user':type == 'profile'  }"></i>
+                {{type}}
+            </span>
+        </p>
+        <p>Made by: </p>
+        <p>On:  at: </p>
+        <p>Comment: </p>
+    </div>
+    <div mat-dialog-actions class="d-flex justify-content-around">
+        <button mat-button (click)="onDenyClick()" class="btn btn-outline-danger">Deny</button>
+        <button mat-button mat-dialog-close="yes" class="btn btn-outline-success" cdkFocusInitial>Accept</button>
+    </div>
+</section>

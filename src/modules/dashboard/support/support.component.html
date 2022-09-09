@@ -1,0 +1,14 @@
+<div class="row justify-content-center">
+    <h3 class="my-4 py-1 px-5 text-white bg--primary">Contact the development team</h3>
+    
+</div>
+<div class="row p-3 justify-content-between">
+    <app-developer-card *ngFor="let dev of developers"
+        [firstName]="dev.firstName"
+        [username] = "dev.username"
+        [promo]="dev.promo"
+        [description]="dev.description"
+        [github]="dev.github"
+        [email]="dev.email"
+        [linkedin]="dev.linkedin"></app-developer-card>
+</div>

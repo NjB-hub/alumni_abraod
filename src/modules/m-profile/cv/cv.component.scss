@@ -1,0 +1,57 @@
+@import "../../../styles/styles.scss";
+$c-gold: rgb(192, 177, 147);
+$c-paleBlue: rgb(227, 230, 237);
+h2{
+    border-bottom: 2px solid $c-primary;
+}
+.cv{
+    &-content{
+        display: flex;
+        
+    }
+    &-left{
+        text-align: justify;
+    }
+    &-header{
+        padding: 2em;
+        display: flex;
+        flex-direction: column;
+        background-color: $c-primary;
+        color: white;
+    }
+    &-user-name{
+        border-bottom: 1px solid white;
+        text-transform: uppercase;
+        font-size: larger;
+    }
+    &-user-post{
+        text-align: right;
+        text-transform: uppercase;
+        color: $c-gold;
+    }
+    &-user-info{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 2em;
+        i{
+            padding-bottom: 0.4em;
+            color:$c-gold;
+        }
+        span{
+            word-wrap: break-word;
+        }
+    }
+    
+    &-right{
+        background-color: $c-paleBlue;
+        font-size: 0.75em;
+        text-align: center;
+        .cv-expertise{
+            text-transform: uppercase;
+        }
+        .cv-list{
+            list-style-type: none;
+            
+        }
+    }
+}

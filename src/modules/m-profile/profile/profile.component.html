@@ -1,0 +1,36 @@
+<section class="container  mt-5">
+    <div class="row">
+        <div class="col-4 left">
+            <div class="left-photo">
+                <div><img src="../../assets/images/logoEAA.jpeg" width="50px" height="50px" />
+                    <!--<i class="fa fa-fw fa-pencil"></i>-->
+                </div>
+                <div *ngIf="userProfile.name || userProfile.surname; else elseBlock">
+                    <div>{{userProfile.surname}} {{userProfile.name}}</div>
+                </div>
+                <ng-template #elseBlock>
+                    <div>{{user!.username}}</div>
+                </ng-template>
+
+                <div>{{userProfile.position}}</div>
+                <p class="mt-1"><a role="button" routerLink="/core/profile/modifyprofile"
+                        class="btn btn--sm btn--primary">Modify profile</a></p>
+            </div>
+        </div>
+        <div class="col-8 right">
+            <h5 class=" ">Personal informations</h5>
+            <div class="line"><span>Name:</span><span>{{ userProfile.name }}</span></div>
+            <div class="line"><span>Surname:</span><span>{{ userProfile.surname }}</span></div>
+            <div class="line"><span>Date of birth:</span><span>{{ userProfile.dateOfBirth }}</span></div>
+            <div class="line"><span>Gender:</span>{{ userProfile.gender }}</div>
+            <div class="line"><span>Username:</span><span>{{ user!.username }}</span></div>
+            <div class="line"><span>Email:</span><span>{{user!.email}}</span></div>
+            <div class="line"><span>Phone:</span><span>{{userProfile.phone}}</span></div>
+            <div class="line"><span>Position:</span><span>{{userProfile.position}}</span></div>
+            <div class="line"><span>Address:</span><span>{{userProfile.address}}</span></div>
+            <div class="line"><a class="btn btn--primary" role="button" routerLink="/core/profile/viewcv">See CV</a><a
+                    class="btn btn--primary" role="button" routerLink="/core/profile/modifycv">Modify CV</a><button
+                    class="btn btn--primary">Print CV</button></div>
+        </div>
+    </div>
+</section>

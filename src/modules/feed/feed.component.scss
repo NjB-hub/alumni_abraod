@@ -1,0 +1,26 @@
+@import "../../styles/styles.scss";
+.topost{
+    display: flex;
+    justify-content: space-around;
+}
+/* Link to sort */
+.sort {
+    display: flex;
+    justify-content: flex-end;
+    a{
+        color: $c-primary;
+    }
+    
+}
+img{
+    color: $c-primary;
+    border: 0.05em solid $c-primary;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    
+}
+.card-title{
+    display: flex;
+    align-items: center;
+}

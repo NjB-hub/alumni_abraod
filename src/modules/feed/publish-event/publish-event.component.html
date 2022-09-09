@@ -1,0 +1,79 @@
+
+<section class="mt-2">
+    <div class="row">
+        <div class="col-lg-5">
+            <h5 class="ml-3">Publish an event</h5>
+            <hr class="mt-0 bg--primary"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-5">
+            <form class="p-2 shadow" [formGroup]="publishEventForm" (ngSubmit)="onSubmit()">    
+                <div class="mb-3 form-input">
+                    <input type="text"
+                    class="form-control"
+                    id="title"
+                    formControlName="title" 
+                    placeholder="Title"
+                    required/>
+                </div>
+                <div class="mb-3 form-input">
+                    <input type="text"
+                    class="form-control fontAwesome"
+                    id="place"
+                    formControlName="place" 
+                    placeholder="Place"
+                    required/>
+                </div>
+                <div class="mb-3 form-input ">
+                    <label for="date" class="form-label mr-1">
+                        Date
+                    </label>
+                    <input type="date"
+                    class="form-control"
+                    id="date"
+                    formControlName="date" 
+                    required/>
+                </div>
+                <div class="mb-3 form-input ">
+                    
+                    <label for="start" class="form-label mr-1 ">
+                       Start
+                    </label>
+                    <input type="time"
+                    class="form-control  p-0"
+                    id="start"
+                    formControlName="start"
+                    required/>
+                    
+                    <label for="end" class="form-label mx-1 ">
+                         End
+                    </label>
+                    <input type="time"
+                    class="form-control  p-0"
+                    id="end"
+                    formControlName="end"
+                    required/>
+                </div>
+                <div class="form-group">
+                  <textarea class="form-control" formControlName="description" name="" id="description" rows="4" placeholder="Description" required></textarea>
+                </div>
+                <app-upload-files></app-upload-files>
+                <div class="text-center container">
+                    <div class="row d-flex justify-content-around">
+                        <button data-toggle="collapse" href="#publishEventForm"
+                        class="btn btn--outline-primary" (click)="cancel()"
+                        >Cancel</button>
+
+                        <button type="submit" 
+                        class="btn btn--outline-primary"
+                        [disabled]="publishEventForm.invalid"
+                        [ngClass]="{'btn--disabled':publishEventForm.invalid}"
+                        >Publish</button>
+                    </div>
+                    
+                </div> 
+            </form>
+        </div>
+    </div>
+</section>
