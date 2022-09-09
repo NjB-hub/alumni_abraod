@@ -148,9 +148,7 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
     cors: {
-      // allowOrigins: [
-      //   'https://example.com',
-      // ]
+      allowOrigins: ["https://enspyalumniabroad.herokuapp.com", '*',]
     },
 
   },
@@ -373,8 +371,10 @@ module.exports = {
   *                                                                         *
   ***************************************************************************/
   custom: {
-    baseUrl: 'https://example.com',
-    internalEmailAddress: 'support@example.com',
+    emailProofTokenTTL: 24 * 60 * 60 * 1000, // 24 hours
+    api_baseUrl: "https://enspyalumniabroadapi.herokuapp.com/",
+    app_baseURL: 'https://enspyalumniabroad.herokuapp.com',
+    passwordResetTokenTTL: 24 * 60 * 60 * 1000, // 24 hours,
 
     // sendgridSecret: 'SG.fake.3e0Bn0qSQVnwb1E4qNPz9JZP5vLZYqjh7sn8S93oSHU',
     // stripeSecret: 'sk_prod__fake_Nfgh82401348jaDa3lkZ0d9Hm',
@@ -390,7 +390,4 @@ module.exports = {
     //--------------------------------------------------------------------------
 
   },
-
-
-
 };
