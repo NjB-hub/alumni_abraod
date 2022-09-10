@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 import { environment } from '../../../environments/environment';
@@ -26,6 +26,7 @@ export class AuthService {
             //A client-side or network error occurred. Handle it accordingly.
             return throwError(new Error(environment.OFFLINE_MESSAGE_ERROR))
         }
+        console.log(error)
         return throwError(new Error(error.error.error))
     }
 
@@ -35,8 +36,8 @@ export class AuthService {
             username:string, 
             password: string
         }
-    ){
-        return this.http.post<APIResponse>( environment.backend_API_URL + 'user/register', params)
+    ){  
+        return this.http.post<APIResponse>('/api/user/register', params)
         .pipe(catchError(this.handleError));
     }
 
@@ -46,17 +47,21 @@ export class AuthService {
     }
 
     signInUser(email:string, password:string){
-        return this.http.post<APIResponse>(environment.backend_API_URL + 'user/login', {email: email, password: password})
+        const headers = new HttpHeaders();
+        headers.append('Access-Control-Allow-Methods', 'POST');
+        headers.append('Access-Control-Allow-Origin', '*');
+
+        return this.http.post<APIResponse>('/api/user/login', {email: email, password: password}, {headers: headers})
         .pipe(catchError(this.handleError))
     }
 
     forgotPassword(email:string){
-        return this.http.post<APIResponse>(environment.backend_API_URL + 'user/forgot-password', {email: email})
+        return this.http.post<APIResponse>('/api/user/forgot-password', {email: email})
         .pipe(catchError(this.handleError))
     }
 
     resetPassword(password:string, token: string){
-        return this.http.post<APIResponse>(environment.backend_API_URL + 'user/reset-password', {password: password, token:token})
+        return this.http.post<APIResponse>('/api/user/reset-password', {password: password, token:token})
         .pipe(catchError(this.handleError))
     }
 
@@ -66,7 +71,7 @@ export class AuthService {
                 //Place backend function here
                 var params = new HttpParams().set('onlyUnreadPosts', onlyUnreadPosts);
 
-                this.http.get(environment.backend_API_URL + 'user/' + userId, {params: params}).subscribe(
+                this.http.get('/api/user/' + userId, {params: params}).subscribe(
                     (response) =>{
                         resolve(response);
                     },

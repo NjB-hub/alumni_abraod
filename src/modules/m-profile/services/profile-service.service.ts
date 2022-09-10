@@ -37,7 +37,7 @@ export class ProfileService {
       position:string
     }
   ){
-    return this.http.patch<Profile>(environment.backend_API_URL + 'profile/' + this.currentUserProfile.id, params)
+    return this.http.patch<Profile>('/api/profile/' + this.currentUserProfile.id, params)
     .pipe(catchError(this.handleError))
   }
 
@@ -48,13 +48,13 @@ export class ProfileService {
       username:string,
     }
   ){
-    return this.http.patch<User>(environment.backend_API_URL + 'user/' + this.currentUser!.id, params)
+    return this.http.patch<User>('/api/user/' + this.currentUser!.id, params)
     .pipe(catchError(this.handleError))
   }
 
   //requête get pour récupérer les informations d'un utilisateur
   getUser(userId:string){
-    return this.http.get<APIResponse>(environment.backend_API_URL + 'user/' + userId)
+    return this.http.get<APIResponse>('/api/user/' + userId)
     .pipe(catchError(this.handleError))
   }
 }

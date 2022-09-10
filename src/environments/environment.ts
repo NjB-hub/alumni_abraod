@@ -5,8 +5,10 @@
 export const environment = {
   production: false,
   //backend_API_URL: "http://localhost:1337/",
+  app_baseURL:"http://localhost:4200",
   OFFLINE_MESSAGE_ERROR: "You are currently off-line. Check your internet connexion.",
   backend_API_URL: "https://enspyalumniabroadapi.herokuapp.com/",
+  //app_baseURL:"https://enspyalumniabroad.herokuapp.com/",
   periodCheckNewPost: 3000,
 };
 

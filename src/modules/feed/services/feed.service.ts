@@ -100,7 +100,7 @@ export class FeedService {
     headers.append('Accept', 'application/json');
     let options = { headers: headers };
 
-    return this.http.post<APIResponse>(environment.backend_API_URL + 'post/create', formData, options)
+    return this.http.post<APIResponse>('/api/post/create', formData, options)
     .pipe(catchError(this.handleError))
   }
 
@@ -108,7 +108,7 @@ export class FeedService {
   getPosts(){
     let params = new HttpParams().set('requestorId', this.authService.user?.id || "");
 
-    return this.http.get<Post[]>(environment.backend_API_URL + 'post/index',  {params: params})
+    return this.http.get<Post[]>('/api/post/index',  {params: params})
     .pipe(
         catchError(this.handleError) 
     )
@@ -124,7 +124,7 @@ export class FeedService {
 
   //delete a post
   deletePost(id:string){
-    return this.http.delete<APIResponse>(environment.backend_API_URL + 'post/delete/' + id)
+    return this.http.delete<APIResponse>('/api/post/delete/' + id)
     .pipe(
         catchError(this.handleError) 
     )
@@ -139,7 +139,7 @@ export class FeedService {
       postId:string
     }
   ){
-    return this.http.post<APIResponse>( environment.backend_API_URL + 'event/create', params)
+    return this.http.post<APIResponse>('/api/event/create', params)
     .pipe(catchError(this.handleError))
   }
 
@@ -149,7 +149,7 @@ export class FeedService {
       postId:string
     }
   ){
-    return this.http.post<APIResponse>( environment.backend_API_URL + 'offer/create', params)
+    return this.http.post<APIResponse>('/api/offer/create', params)
     .pipe(catchError(this.handleError))
   }
 

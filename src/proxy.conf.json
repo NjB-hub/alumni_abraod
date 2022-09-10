@@ -1,6 +1,10 @@
 {
     "/api": {
-        "target": "https://enspyalumniabroadapi.herokuapp.com/",
-        "secure": false
+        "target": "http://ec2-44-204-66-13.compute-1.amazonaws.com:1337/",
+        "secure": false,
+        "pathRewrite": {
+            "^/api": ""
+        },
+        "changeOrigin": true
     }
 }
