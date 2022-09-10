@@ -62,7 +62,7 @@ export class PostListItemComponent implements OnInit {
       let file:string = this.post.files.split(" ")[0];
       let fileName = file.split("/")[0];
       this.fileType = file.split("/")[1];
-      this.fileURL = this.sanitizer.bypassSecurityTrustUrl(environment.backend_API_URL + 'file/?filename=' + fileName);
+      this.fileURL = this.sanitizer.bypassSecurityTrustUrl('/api/file/?filename=' + fileName);
     }
   }
 

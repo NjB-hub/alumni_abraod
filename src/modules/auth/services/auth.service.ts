@@ -42,7 +42,7 @@ export class AuthService {
     }
 
     confirmEmail(token:string){
-        return this.http.get<APIResponse>(environment.backend_API_URL + 'user/confirm?token='+token)
+        return this.http.get<APIResponse>('/api/user/confirm?token='+token)
         .pipe(catchError(this.handleError));
     }
 

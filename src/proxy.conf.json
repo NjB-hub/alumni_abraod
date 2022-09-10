@@ -1,6 +1,6 @@
 {
     "/api": {
-        "target": "http://ec2-44-204-66-13.compute-1.amazonaws.com:1337/",
+        "target": "http://localhost:1337",
         "secure": false,
         "pathRewrite": {
             "^/api": ""
