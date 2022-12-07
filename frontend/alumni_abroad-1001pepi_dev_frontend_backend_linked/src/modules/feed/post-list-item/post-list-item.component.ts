@@ -1,18 +1,19 @@
-import { Component, Input, OnInit } from '@angular/core';
-import * as $ from "jquery";
+import { Component, Input, OnInit, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-post-list-item',
   templateUrl: './post-list-item.component.html',
   styleUrls: ['./post-list-item.component.scss']
 })
-export class PostListItemComponent implements OnInit {
+export class PostListItemComponent implements OnInit, AfterViewInit {
 
   @Input() owner:any;
   @Input() ownerProfile:any;
   @Input() post:any;
   @Input() numberComments:number = 3;
   @Input() fakeIndex:number;
+  @ViewChild("commentInput") commentInput: ElementRef<HTMLInputElement>
 
   today: number = Date.now();
   postedSince:string='';
@@ -121,6 +122,13 @@ export class PostListItemComponent implements OnInit {
       btnText.innerHTML = "Read less";
       moreText.style.display = "inline";
     }
+  }
+
+  onCommentPost():void{
+    this.commentInput.nativeElement.focus();
+  }
+  ngAfterViewInit():void{
+    this.commentInput.nativeElement.focus();
   }
 }
 

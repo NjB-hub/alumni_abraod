@@ -1,5 +1,31 @@
-.row.mb-2 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+@import "../../../styles/styles.scss";
+
+.event-card{
+    &-number{
+        font-size: 4em;
+    }
+    &-body{
+        border-left: .2em $c-primary solid;
+        border-right: .2em $c-primary solid;
+        border-bottom: .2em $c-primary solid;
+    }
+}
+
+.hover-hand:hover{
+    cursor:pointer;
+}
+
+.event-result{
+    font-size: 1.3em;
+    text-decoration: underline;
+}
+
+.myEvents{
+    font-size: 1.3em;
+}
+
+@media screen and (max-width: 800px) {
+    .event-card-number{
+        font-size: 2em;
+    }  
 }

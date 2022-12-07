@@ -120,10 +120,11 @@
             <div >
                 <button class="btn text-primary"
                     type="button" 
-                    data-toggle="collapse"
+                    
                     [attr.data-target]="'#'+fakeId"
                     aria-expanded="false"
-                    [attr.aria-controls]="fakeId">
+                    [attr.aria-controls]="fakeId"
+                    (click)="onCommentPost()">
                         <i class="far fa-comment-dots"></i>
                     <span class="d-none d-lg-inline ml-1" >Comment</span>
                 </button>
@@ -149,7 +150,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="collapse w-100 " [attr.id]="fakeId">
+            <div class=" w-100 " [attr.id]="fakeId">
                 <app-comment-list></app-comment-list>
             </div>
         </div>

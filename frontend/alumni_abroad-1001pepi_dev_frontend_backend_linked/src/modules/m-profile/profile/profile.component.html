@@ -1,31 +1,29 @@
+<a *ngIf="isSameUser" class="btn btn-outline-danger" routerLink="/core/profile/modifyprofile"><i class="fa fa-pencil mr-1"></i>Modify profile</a>
 <section class="container  mt-5">
-    <div class="row">
-        <div class="col-4 left">
-            <div class="left-photo">
-                <div><img src="../../assets/images/logoEAA.jpeg" width="50px" height="50px"/><!--<i class="fa fa-fw fa-pencil"></i>--></div>
-                <div *ngIf="userProfile.name || userProfile.surname; else elseBlock">
-                    <div>{{userProfile.surname}} {{userProfile.name}}</div>
-                </div>
-                <ng-template #elseBlock>
-                    <div>{{user.username}}</div>
-                </ng-template>
+    <div class="header  p-2">
+        <div class="header-photo"> 
+            <img class="img "src="../../../assets/images/logoEAA.jpeg" alt="{{userName}} photo"/>
+            <div class="header-title ml-2">
+                <span class="name">John DOE</span>
+                <span class="position">student</span>
                 
-                <div>{{userProfile.position}}</div>
-                <p class="mt-1"><a role="button" routerLink="/core/profile/modifyprofile" class="btn btn--sm btn--primary">Modify profile</a></p>
             </div>
         </div>
-        <div class="col-8 right">
-            <h5 class=" ">Personal informations</h5>
-            <div class="line"><span>Name:</span><span>{{ userProfile.name }}</span></div>
-            <div class="line"><span>Surname:</span><span>{{ userProfile.surname }}</span></div>
-            <div class="line"><span>Date of birth:</span><span>{{ userProfile.dateOfBirth }}</span></div>
-            <div class="line"><span>Gender:</span>{{ userProfile.gender }}</div>
-            <div class="line"><span>Username:</span><span>{{ user.username }}</span></div>
-            <div class="line"><span>Email:</span><span>{{user.email}}</span></div>
-            <div class="line"><span>Phone:</span><span>{{userProfile.phone}}</span></div>
-            <div class="line"><span>Position:</span><span>{{userProfile.position}}</span></div>
-            <div class="line"><span>Address:</span><span>{{userProfile.address}}</span></div>
-            <div class="line"><a class="btn btn--primary" role="button" routerLink="/core/profile/viewcv">See CV</a><a class="btn btn--primary" role="button" routerLink="/core/profile/modifycv">Modify CV</a><button class="btn btn--primary">Print CV</button></div>
-        </div>
     </div>
+    <div class="row mt-3">
+        <ul class="d-flex">
+            <li class="mr-5">Location</li>
+            <li class="mr-5">NumeroTel</li>
+            <li class="mr-5">GI-2012</li>
+        </ul>
+    </div>
+    <div class="row">
+        <p class="bio">Biography</p>
+        <p class="text-justify">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+    </div>
+    <div class="row justify-content-between">
+        <a class="btn btn-outline-info" routerLink="/core/profile/viewcv"><i class="fa fa-eye mr-1"></i>View John Doe's cv</a>
+        <a *ngIf="isSameUser" class="btn btn-outline-info" routerLink="/core/profile/modifycv"><i class="fa fa-pencil mr-1"></i>Modify John Doe's cv</a>
+    </div>
+   
 </section>

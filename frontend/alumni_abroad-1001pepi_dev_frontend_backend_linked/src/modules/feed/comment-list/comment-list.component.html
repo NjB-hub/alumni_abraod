@@ -10,16 +10,18 @@
         </div>
     </div>
     <div class="row mb-3 flex-column" *ngIf="isCommentsVisible">
-        <app-comment-list-item [hasReply]="true"></app-comment-list-item>
-        <div class="row mt-0 ml-5 mr-1 flex-column">
+        <app-comment-list-item [hasReply]="isCommentHasReplies"></app-comment-list-item>
+        <div class="row mt-0 ml-5 mr-1 flex-column" *ngIf="isCommentHasReplies">
             <app-comment-list-item></app-comment-list-item> 
             <app-comment-list-item></app-comment-list-item> 
             <app-comment-list-item></app-comment-list-item>
         </div>
         <app-comment-list-item></app-comment-list-item> 
     </div>
+
+    <!--Form to type a comment or reply to one-->
     <div class="row flex-column">
-        <span class="small text-secondary ml-1" *ngIf="onReplying">Replying to John Doe</span>
+        <span class="small text-secondary ml-1 mb-1" >{{replyInfo}}</span>
         <div class="d-flex align-items-center ">
             <div class="mr-4 mr-lg-1 col-1 p-0"> <img src="../../assets/images/logoEAA.jpeg" alt="{{authorName}}'s profile photo" /></div>
             <form #commentForm="ngForm" (ngSubmit)="onSubmitForm(commentForm)"

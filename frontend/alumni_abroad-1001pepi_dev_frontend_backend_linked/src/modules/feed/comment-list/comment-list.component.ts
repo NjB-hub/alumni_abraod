@@ -1,5 +1,6 @@
 import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { CommentService } from '../services/comment.service';
 
 @Component({
   selector: 'app-comment-list',
@@ -11,10 +12,12 @@ export class CommentListComponent implements OnInit,OnDestroy {
   @Input() authorName:string='John Doe';
   @ViewChild('commentInput') commentInputElement!: ElementRef<HTMLInputElement>
   isCommentsVisible:boolean = false;
-  onReplying:boolean = false //if the comment is a reply
-  constructor() { }
+  isCommentHasReplies:boolean = true;
+  replyInfo:string = '';
+  constructor(private commentService: CommentService) { }
 
   ngOnInit(): void {
+    //this.replyInfo = this.commentService.replyInfo
   }
 
   focusComment():void{
@@ -33,7 +36,7 @@ export class CommentListComponent implements OnInit,OnDestroy {
   }
 
   ngOnDestroy():void{
-    this.onReplying = false
+    
   }
 
 }
