@@ -13,7 +13,7 @@ const routes: Routes = [
 
   { path: 'core', canActivate: [AuthGuardService],loadChildren: () => import('../modules/core/core.module').then(m => m.CoreModule) },
 
-  { path: 'dashboard', /*canActivate: [AdminGuardService]*/ loadChildren: () => import('../modules/dashboard/dashboard.module').then(m => m.DashboardModule) },
+  { path: 'dashboard', /*canActivate: [AuthGuardService, AdminGuardService]*/ loadChildren: () => import('../modules/dashboard/dashboard.module').then(m => m.DashboardModule) },
 
   { path: 'not-found', component: FourOhFourComponent },
   

@@ -17,6 +17,7 @@ export class NavCoreComponent implements OnInit, OnDestroy {
   @Input() isVisible:boolean=true;
 
   newPost:Boolean = false;
+  isAdmin:boolean = true;
   newPostChecker:any;
 
   feedSubscription:Subscription = new Subscription();
