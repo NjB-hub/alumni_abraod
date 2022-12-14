@@ -8,15 +8,15 @@
     
     <div mat-dialog-content class="">
         <p>Type: <span class="report-title text-white px-2"
-            [ngClass]="{'bg-success':type == 'comment', 'bg-primary':type == 'post', 'bg-danger':type == 'profile'  }">
+            [ngClass]="{'bg-success':data.type == 'comment', 'bg-primary':data.type == 'post', 'bg-danger':data.type == 'profile'  }">
             <i class="fas"
-        [ngClass]="{'fa-comment':type == 'comment', 'fa-newspaper':type == 'post', 'fa-user':type == 'profile'  }"></i>
-                {{type}}
+        [ngClass]="{'fa-comment':data.type == 'comment', 'fa-newspaper':data.type == 'post', 'fa-user':data.type == 'profile'  }"></i>
+                {{data.type}}
             </span>
         </p>
-        <p>Made by: </p>
-        <p>On:  at: </p>
-        <p>Comment: </p>
+        <p>Made by: {{data.reporterName}} (@{{data.reporterUsername}}) </p>
+        <p>On: {{data.reportedName}} (@{{data.reportedUsername}}) at: {{data.at}} </p>
+        <p>Comment: {{data.comment}} </p>
     </div>
     <div mat-dialog-actions class="d-flex justify-content-around">
         <button mat-button (click)="onDenyClick()" class="btn btn-outline-danger">Deny</button>

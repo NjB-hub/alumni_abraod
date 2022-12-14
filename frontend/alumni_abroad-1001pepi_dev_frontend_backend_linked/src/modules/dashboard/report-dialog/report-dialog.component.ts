@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef} from '@angular/material/dialog';
-
+import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-report-dialog',
@@ -9,7 +9,8 @@ import { MatDialogRef} from '@angular/material/dialog';
 })
 export class ReportDialogComponent implements OnInit {
   type:'comment'|'post'|'profile' = "post"
-  constructor(public dialogRef: MatDialogRef<ReportDialogComponent>) { }
+  constructor(public dialogRef: MatDialogRef<ReportDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: {type : "post"|"comment"|"profile", 
+    reporterName:string, reporterUsername:string, reportedName:string, reportedUsername:string, comment : string, at: string}) { }
 
   ngOnInit(): void {
   }

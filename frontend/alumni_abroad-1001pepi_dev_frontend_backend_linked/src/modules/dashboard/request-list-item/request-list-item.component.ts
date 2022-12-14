@@ -21,7 +21,12 @@ export class RequestListItemComponent implements OnInit {
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(RequestDialogComponent,{width: '600px'});
+    const dialogRef = this.dialog.open(RequestDialogComponent,{width: '600px', data:{
+      name:this.name,
+      email : this.email,
+      dept:this.dept,
+      year: this.year
+    }});
     
     dialogRef.afterClosed().subscribe(result => {
       if(result){
