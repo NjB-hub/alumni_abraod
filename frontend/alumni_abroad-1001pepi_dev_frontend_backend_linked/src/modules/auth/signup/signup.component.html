@@ -73,8 +73,8 @@
                         <label for="dept">NASEY's promotion</label>
                         <div class="row">
                           <div class="col-8">
-                            <select id="dept" name="dept" class="form-control" formControlName="promotion">
-                              <option value="">--Please choose your department--</option>
+                            <select id="dept" name="dept" class="form-control" formControlName="dept" >
+                              <option selected="true" value="">--Please choose your department--</option>
                                <option value="gi">GI</option>
                                <option value="gm">GM</option>
                                <option value="gtel">GTEL</option>
@@ -84,7 +84,7 @@
                              </select>
                           </div>
                           <div class="col-4">
-                            <input type="number" id="year" class="form-control" formControlName="year" placeholder="eg:2020"> 
+                            <input type="number" id="year" class="form-control" formControlName="year" placeholder="year"> 
                           </div>
                         
                       </div>

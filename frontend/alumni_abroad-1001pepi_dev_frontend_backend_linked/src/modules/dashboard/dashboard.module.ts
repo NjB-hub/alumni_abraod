@@ -28,6 +28,7 @@ import { DashboardUserGuideComponent } from './dashboard-user-guide/dashboard-us
 import { BugsReportedComponent } from './bugs-reported/bugs-reported.component';
 import { SupportComponent } from './support/support.component';
 import { DeveloperCardComponent } from './developer-card/developer-card.component';
+import { NavDashboardComponent } from './nav-dashboard/nav-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -51,12 +52,13 @@ import { DeveloperCardComponent } from './developer-card/developer-card.componen
     DashboardUserGuideComponent,
     BugsReportedComponent,
     SupportComponent,
-    DeveloperCardComponent
+    DeveloperCardComponent,
+    NavDashboardComponent
   ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    MatDialogModule,
+    MatDialogModule
   ]
 })
 export class DashboardModule { }

@@ -14,6 +14,7 @@ export class FeedComponent implements OnInit, OnDestroy {
 
   user:any;
   alertMessage:string = '';
+  isLoading:boolean = true;
 
   ngOnInit(): void {
     const tmpUser:any = localStorage.getItem('user');
@@ -22,6 +23,10 @@ export class FeedComponent implements OnInit, OnDestroy {
     this.activatedRoute.queryParams.subscribe(params => {
       this.alertMessage = params['alertMessage'];
      })
+
+     setTimeout(() => {
+       this.isLoading = false
+     }, 5000)
   }
 
   postEventClicked(){

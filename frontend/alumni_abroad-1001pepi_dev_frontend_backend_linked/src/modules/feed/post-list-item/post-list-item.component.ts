@@ -1,4 +1,7 @@
 import { Component, Input, OnInit, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ReportDialogComponent } from '../report-dialog/report-dialog.component';
+import { CommentService } from '../services/comment.service';
 
 
 @Component({
@@ -6,14 +9,15 @@ import { Component, Input, OnInit, ElementRef, ViewChild, AfterViewInit } from '
   templateUrl: './post-list-item.component.html',
   styleUrls: ['./post-list-item.component.scss']
 })
-export class PostListItemComponent implements OnInit, AfterViewInit {
+export class PostListItemComponent implements OnInit {
 
   @Input() owner:any;
   @Input() ownerProfile:any;
   @Input() post:any;
   @Input() numberComments:number = 3;
   @Input() fakeIndex:number;
-  @ViewChild("commentInput") commentInput: ElementRef<HTMLInputElement>
+  ownerUsername:string='johnDoe'
+  // @ViewChild("commentInput") commentInput: ElementRef<HTMLInputElement>
 
   today: number = Date.now();
   postedSince:string='';
@@ -23,13 +27,14 @@ export class PostListItemComponent implements OnInit, AfterViewInit {
   isSameUser:boolean ;
   senderName:string = "";
   descriptionStart:string = "";
-  descriptionEnd:string = ""; 
+  descriptionEnd:string = "";
+  id : string="toto123" 
 
   fakeId:string='';
 
-
+  textSave:string='Save'
   
-  constructor() { }
+  constructor(public dialog:MatDialog, private commentService:CommentService) { }
 
   public differenceDates(today:number, otherDate:number): string{ 
     //A function to calculate differences between dates and format the result as in LinkedIn
@@ -69,7 +74,8 @@ export class PostListItemComponent implements OnInit, AfterViewInit {
   }
 
   onSavePost():void{
-
+    this.textSave = "Saved"
+    //code for save the post...
   }
   onModifyPost():void{
 
@@ -78,8 +84,10 @@ export class PostListItemComponent implements OnInit, AfterViewInit {
 
   }
   onReportPost():void{
-    
+    const dialogRef = this.dialog.open(ReportDialogComponent,{width: '500px', data:{username:this.ownerUsername}});
   }
+
+  
 
   
   ngOnInit(): void {
@@ -125,11 +133,12 @@ export class PostListItemComponent implements OnInit, AfterViewInit {
   }
 
   onCommentPost():void{
-    this.commentInput.nativeElement.focus();
+    // this.commentInput.nativeElement.focus();
+    this.commentService.onClear();
   }
-  ngAfterViewInit():void{
-    this.commentInput.nativeElement.focus();
-  }
+  // ngAfterViewInit():void{
+  //   this.commentInput.nativeElement.focus();
+  // }
 }
 
 

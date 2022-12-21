@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs';
 import {LogOutDialogComponent } from '../log-out-dialog/log-out-dialog.component';
 
 import { environment } from 'src/environments/environment';
+import { AuthService } from 'src/modules/auth/services/auth.service';
 
 @Component({
   selector: 'app-nav-core',
@@ -16,15 +17,19 @@ export class NavCoreComponent implements OnInit, OnDestroy {
   
   @Input() isVisible:boolean=true;
 
-  newPost:Boolean = false;
-  isAdmin:boolean = true;
+  newPost:Boolean;
+  isAdmin:boolean;
   newPostChecker:any;
 
   feedSubscription:Subscription = new Subscription();
 
-  constructor(private router:Router, private feedService:FeedService, public dialog:MatDialog) { }
+  constructor(private router:Router, 
+    private feedService:FeedService, 
+    public dialog:MatDialog,
+    private authService:AuthService) { }
 
   ngOnInit(): void {
+    this.isAdmin = this.authService.isAdmin;
     this.launchNewPostChecker();
   }
 

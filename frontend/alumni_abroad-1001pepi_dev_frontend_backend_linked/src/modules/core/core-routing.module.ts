@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuardService } from '../../modules/auth/services/auth-guard.service';
 import { AdminGuardService } from '../auth/services/admin-guard.service';
+import { ProfileComponent } from '../m-profile/profile/profile.component';
 import { CoreComponent } from './core.component';
 
 const routes: Routes = [
@@ -13,6 +14,12 @@ const routes: Routes = [
       { path: 'notifications', loadChildren: () => import('../notifications/notifications.module').then(m => m.NotificationsModule) },
       { path: 'calendar', loadChildren: () => import('../m-calendar/m-calendar.module').then(m => m.MCalendarModule) },
       { path: 'profile', loadChildren: () => import('../m-profile/m-profile.module').then(m => m.MProfileModule) },
+      { path: 'users',
+        children: [
+          {path:'', redirectTo:'profile'},
+          {path:':id',component: ProfileComponent}
+        ]
+      }
     ]
   }
 ];

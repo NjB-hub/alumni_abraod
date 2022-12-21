@@ -35,7 +35,12 @@ export class CalendarComponent implements OnInit {
 
   onChangeSaved() : void{
     this.isSavedShown = !this.isSavedShown
-    this.textButton = "Hide events saved"
+    if(this.isSavedShown){
+      this.textButton = "Hide events saved"
+    } else {
+      this.textButton = "View events saved"
+    }
+    
   }
 
   onAddEvent():void{

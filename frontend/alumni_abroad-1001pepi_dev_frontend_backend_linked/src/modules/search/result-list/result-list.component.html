@@ -1,3 +1,7 @@
-<app-result-list-item></app-result-list-item>
-<app-result-list-item></app-result-list-item>
-<app-result-list-item></app-result-list-item>
+<div *ngFor="let result of results; let i = index"
+        (click)="onViewRes(result.id)" class="conversation"> 
+        <app-result-list-item 
+        [name]="result.name"
+        [position]="result.position"
+          ></app-result-list-item>
+</div>

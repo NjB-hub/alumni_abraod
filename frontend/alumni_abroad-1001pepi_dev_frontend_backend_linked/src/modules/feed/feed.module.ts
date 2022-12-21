@@ -16,6 +16,8 @@ import { MAlertModule } from '../m-alert/m-alert.module';
 import { CommentListComponent } from './comment-list/comment-list.component';
 import { CommentListItemComponent } from './comment-list-item/comment-list-item.component';
 import { FocusMeDirective } from './directives/focus-me.directive';
+import { ReportDialogComponent } from './report-dialog/report-dialog.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 
@@ -31,7 +33,8 @@ import { FocusMeDirective } from './directives/focus-me.directive';
     PublishEventComponent,
     CommentListComponent,
     CommentListItemComponent,
-    FocusMeDirective
+    FocusMeDirective,
+    ReportDialogComponent
   ],
   imports: [
     HttpClientModule,
@@ -39,7 +42,9 @@ import { FocusMeDirective } from './directives/focus-me.directive';
     FormsModule,
     ReactiveFormsModule,
     FeedRoutingModule,
-    MAlertModule
-  ]
+    MAlertModule,
+    MatProgressSpinnerModule
+  ],
+  exports: [CommentListItemComponent]
 })
 export class FeedModule { }

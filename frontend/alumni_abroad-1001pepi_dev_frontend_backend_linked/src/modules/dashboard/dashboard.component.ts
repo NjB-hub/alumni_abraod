@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {LogOutDialogComponent } from '../core/log-out-dialog/log-out-dialog.component';
 import { Router } from '@angular/router';
+import {Location} from '@angular/common';
 
 
 @Component({
@@ -11,7 +12,8 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
   bool:Boolean = true;
-  constructor(private router:Router,public dialog:MatDialog) { }
+  isLoading:boolean = false;
+  constructor(private router:Router,public dialog:MatDialog, private _location: Location) { }
 
   ngOnInit(): void {
   }
@@ -33,6 +35,10 @@ export class DashboardComponent implements OnInit {
       }
     })
 
+  }
+
+  onBackClicked() {
+    this._location.back();
   }
 
 }
