@@ -1,0 +1,10 @@
+@import "../../../styles/styles.scss";
+
+.comment{
+    display: flex;
+    flex-direction: column;
+}
+
+mat-spinner{
+    left: 40%;
+}

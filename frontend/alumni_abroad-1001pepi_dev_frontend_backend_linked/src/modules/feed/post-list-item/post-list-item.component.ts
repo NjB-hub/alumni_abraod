@@ -1,5 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
-import * as $ from "jquery";
+import { Component, Input, OnInit, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ReportDialogComponent } from '../report-dialog/report-dialog.component';
+import { CommentService } from '../services/comment.service';
+
 
 @Component({
   selector: 'app-post-list-item',
@@ -13,6 +16,8 @@ export class PostListItemComponent implements OnInit {
   @Input() post:any;
   @Input() numberComments:number = 3;
   @Input() fakeIndex:number;
+  ownerUsername:string='johnDoe'
+  // @ViewChild("commentInput") commentInput: ElementRef<HTMLInputElement>
 
   today: number = Date.now();
   postedSince:string='';
@@ -22,13 +27,14 @@ export class PostListItemComponent implements OnInit {
   isSameUser:boolean ;
   senderName:string = "";
   descriptionStart:string = "";
-  descriptionEnd:string = ""; 
+  descriptionEnd:string = "";
+  id : string="toto123" 
 
   fakeId:string='';
 
-
+  textSave:string='Save'
   
-  constructor() { }
+  constructor(public dialog:MatDialog, private commentService:CommentService) { }
 
   public differenceDates(today:number, otherDate:number): string{ 
     //A function to calculate differences between dates and format the result as in LinkedIn
@@ -68,7 +74,8 @@ export class PostListItemComponent implements OnInit {
   }
 
   onSavePost():void{
-
+    this.textSave = "Saved"
+    //code for save the post...
   }
   onModifyPost():void{
 
@@ -77,8 +84,10 @@ export class PostListItemComponent implements OnInit {
 
   }
   onReportPost():void{
-    
+    const dialogRef = this.dialog.open(ReportDialogComponent,{width: '500px', data:{username:this.ownerUsername}});
   }
+
+  
 
   
   ngOnInit(): void {
@@ -122,6 +131,14 @@ export class PostListItemComponent implements OnInit {
       moreText.style.display = "inline";
     }
   }
+
+  onCommentPost():void{
+    // this.commentInput.nativeElement.focus();
+    this.commentService.onClearReplyInfo();
+  }
+  // ngAfterViewInit():void{
+  //   this.commentInput.nativeElement.focus();
+  // }
 }
 
 

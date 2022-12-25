@@ -1,5 +1,7 @@
 import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Subscription } from 'rxjs';
+import { CommentService } from '../services/comment.service';
 
 @Component({
   selector: 'app-comment-list',
@@ -11,10 +13,38 @@ export class CommentListComponent implements OnInit,OnDestroy {
   @Input() authorName:string='John Doe';
   @ViewChild('commentInput') commentInputElement!: ElementRef<HTMLInputElement>
   isCommentsVisible:boolean = false;
-  onReplying:boolean = false //if the comment is a reply
-  constructor() { }
+  isCommentHasReplies:boolean = true;
+  replyInfo:string = '';
+  commentContent:string = '';
+  falseVar:boolean = false;
+  commentSubscription: Subscription;
+  commentHeaderSubscription:Subscription
+
+
+  constructor(private commentService: CommentService) { }
+
+  comments:any[] = [
+    {name:'John Doe', position:'student', isAuthor:true, since:'1d', children:[]},
+    {name: 'Charlie', position:'engineer at Microsoft', isAuthor:false, since:'1h', children:[
+      {name:'Michael Doe', position:'student', isAuthor:false, since:'Just now', children:[]},
+      {name:'RM', position:'Chairman and CEO', isAuthor:false, since:'3h',children:[]}
+    ]}
+  ]
+
 
   ngOnInit(): void {
+    //this.replyInfo = this.commentService.replyInfo
+    this.commentSubscription = this.commentService.commentSubject.subscribe(
+      (replyInfo:string) => {
+        this.replyInfo = replyInfo
+      }
+    )
+
+    this.commentHeaderSubscription = this.commentService.headerSubject.subscribe(
+      (header:string) => {
+        this.commentContent = header
+      }
+    )
   }
 
   focusComment():void{
@@ -29,11 +59,13 @@ export class CommentListComponent implements OnInit,OnDestroy {
     //to do something
     var comment = form.value.content;
     console.log(comment)
+    this.commentService.emitCommentSubject()
     
   }
 
   ngOnDestroy():void{
-    this.onReplying = false
+    this.commentSubscription.unsubscribe()
+    this.commentHeaderSubscription.unsubscribe()
   }
 
 }

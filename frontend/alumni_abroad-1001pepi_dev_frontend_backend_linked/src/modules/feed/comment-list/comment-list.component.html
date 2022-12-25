@@ -9,17 +9,19 @@
             (click)="toggleIsVisible()">Hide the comments</button>
         </div>
     </div>
-    <div class="row mb-3 flex-column" *ngIf="isCommentsVisible">
-        <app-comment-list-item [hasReply]="true"></app-comment-list-item>
-        <div class="row mt-0 ml-5 mr-1 flex-column">
+    <!-- <div class="row mb-3 flex-column" *ngIf="isCommentsVisible">
+        <app-comment-list-item [hasReply]="isCommentHasReplies"></app-comment-list-item>
+        <div class="row mt-0 ml-5 mr-1 flex-column" *ngIf="isCommentHasReplies">
             <app-comment-list-item></app-comment-list-item> 
             <app-comment-list-item></app-comment-list-item> 
             <app-comment-list-item></app-comment-list-item>
         </div>
         <app-comment-list-item></app-comment-list-item> 
-    </div>
+        
+    </div> -->
+    <!--Form to type a comment or reply to one-->
     <div class="row flex-column">
-        <span class="small text-secondary ml-1" *ngIf="onReplying">Replying to John Doe</span>
+        <span class="small text-secondary ml-1 mb-1" >{{replyInfo}}</span>
         <div class="d-flex align-items-center ">
             <div class="mr-4 mr-lg-1 col-1 p-0"> <img src="../../assets/images/logoEAA.jpeg" alt="{{authorName}}'s profile photo" /></div>
             <form #commentForm="ngForm" (ngSubmit)="onSubmitForm(commentForm)"
@@ -30,6 +32,7 @@
                     required
                     placeholder="Type a comment..."
                     minlength="4"
+                    [value]="commentContent"
                     #commentInput/> 
                     <button type="submit" 
                     class="btn c--primary btn-submit"
@@ -39,5 +42,26 @@
             </form> 
         </div>
     </div>
+    <div *ngIf="isCommentsVisible" >
+        <div class="row mb-3 flex-column"  *ngFor="let comment of comments">
+            <app-comment-list-item [senderName]="comment.name"
+                                    [position]="comment.position" 
+                                    [postedSince]="comment.since"
+                                    [hasReply]="comment.children.length > 0"
+                                    [isAuthor]="comment.isAuthor"></app-comment-list-item>
+            <div class="row mt-0 ml-5 mr-1 flex-column" *ngIf="comment.children.length > 0">
+                <app-comment-list-item *ngFor="let reply of comment.children"
+                [senderName]="reply.name"
+                [position]="reply.position" 
+                [postedSince]="reply.since"
+                [hasReply]='falseVar'
+                [isAuthor] = "reply.isAuthor"></app-comment-list-item>
+            </div>
+            
+        </div>
+    </div>
+    
+
+    
     
 </section>

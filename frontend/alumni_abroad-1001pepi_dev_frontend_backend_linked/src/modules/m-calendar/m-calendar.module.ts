@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MCalendarComponent } from './m-calendar.component';
 import { RouterModule, Routes } from '@angular/router';
 import { CalendarComponent } from './calendar/calendar.component';
+import { EventCardComponent } from './event-card/event-card.component';
 
 const routes: Routes = [
   { path: '', component: MCalendarComponent,
@@ -13,7 +14,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     MCalendarComponent,
-    CalendarComponent
+    CalendarComponent,
+    EventCardComponent
   ],
   imports: [
     CommonModule,

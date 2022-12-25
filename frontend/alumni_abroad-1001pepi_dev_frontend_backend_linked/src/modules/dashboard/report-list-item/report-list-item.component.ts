@@ -21,7 +21,15 @@ export class ReportListItemComponent implements OnInit {
   }
 
   openDialog():void{
-    const dialogRef = this.dialog.open(ReportDialogComponent,{width: '600px'})
+    const dialogRef = this.dialog.open(ReportDialogComponent,{width: '600px', data:{
+      type:this.type,
+      reporterName:this.reporterName,
+      reporterUsername : this.reporterUsername,
+      reportedName:this.reportedName,
+      reportedUsername : this.reportedUsername,
+      at : 'the date here',
+      comment: this.comment
+    }})
 
     dialogRef.afterClosed().subscribe(result => {
       if(result){

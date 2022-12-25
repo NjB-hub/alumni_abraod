@@ -12,4 +12,16 @@ export class NotificationsListItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onReadNotification():void{
+    if(!this.isRead){
+      this.isRead = true;
+    }
+   
+
+  }
+
+  onDeleteNotification():void{
+
+  }
+
 }

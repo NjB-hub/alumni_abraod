@@ -5,10 +5,9 @@
     </div>
     <hr/>
     <div mat-dialog-content class="">
-        <p>Name: </p>
-        <p>Email address: </p>
-        <p>Promotion: </p>
-        <p>Justification: </p>
+        <p>Name: {{data.name}}</p>
+        <p>Email address: {{data.email}} </p>
+        <p>Promotion: {{data.dept}} {{data.year}}</p>
     </div>
     <div mat-dialog-actions class="d-flex justify-content-around">
         <button mat-button (click)="onDenyClick()" class="btn btn-outline-danger">Deny</button>

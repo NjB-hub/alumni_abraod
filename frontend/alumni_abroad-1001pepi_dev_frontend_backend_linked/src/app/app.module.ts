@@ -25,6 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FooterIndexComponent,
   ],
   exports: [
+    NavIndexComponent
   ],
   imports: [
     HttpClientModule,

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef} from '@angular/material/dialog';
+import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 
 @Component({
@@ -9,7 +10,8 @@ import { MatDialogRef} from '@angular/material/dialog';
 })
 export class RequestDialogComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<RequestDialogComponent>) { }
+  constructor(public dialogRef: MatDialogRef<RequestDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: {name: string, 
+  email:string, dept:"gi"|"gm"|"gele"|"gind"|"gc"|"gtel", year:string|number}) { }
 
   ngOnInit(): void {
   }

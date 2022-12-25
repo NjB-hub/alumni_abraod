@@ -11,6 +11,12 @@ import { CvExpertiseItemComponent } from './cv-expertise-item/cv-expertise-item.
 import { CvFormComponent } from './cv-form/cv-form.component';
 import { EducationItemComponent } from './education-item/education-item.component';
 import { ExperienceItemComponent } from './experience-item/experience-item.component';
+import { ExperienceListComponent } from './experience-list/experience-list.component';
+import { ExperienceListItemComponent } from './experience-list-item/experience-list-item.component';
+import { EducationListComponent } from './education-list/education-list.component';
+import { EducationListItemComponent } from './education-list-item/education-list-item.component';
+import { CertificationListComponent } from './certification-list/certification-list.component';
+import { CertificationListItemComponent } from './certification-list-item/certification-list-item.component';
 
 
 
@@ -23,7 +29,13 @@ import { ExperienceItemComponent } from './experience-item/experience-item.compo
     CvExpertiseItemComponent,
     CvFormComponent,
     EducationItemComponent,
-    ExperienceItemComponent
+    ExperienceItemComponent,
+    ExperienceListComponent,
+    ExperienceListItemComponent,
+    EducationListComponent,
+    EducationListItemComponent,
+    CertificationListComponent,
+    CertificationListItemComponent
   ],
   imports: [
     HttpClientModule,

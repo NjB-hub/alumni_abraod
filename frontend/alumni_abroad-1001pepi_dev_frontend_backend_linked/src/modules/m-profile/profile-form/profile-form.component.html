@@ -1,9 +1,14 @@
-<h5 class="text-center mt-3">Modify personal informations</h5>
+<h5 class="text-center mt-3">Modify profile</h5>
 <section class="container mt-5">
     <div class="row">
         <div class="col-lg-3"></div>
         <div class="col">
             <form [formGroup]="profileForm" (ngSubmit)="onSubmitForm()" class="my-3">
+                <div class="row text-center">
+                  <div class="col">
+                    <p>Personal informations</p>
+                  </div>
+                </div>
                 <div class="row">
                   <div class="form-group  col">
                     <label for="firstName">First name</label>
@@ -51,27 +56,76 @@
                     </div>
                   </div>
                 </div>
-                
+                <div class="form-group">
+                  <label for="position">Location</label>
+                  <input type="text" id="location" class="form-control" formControlName="location">
+                </div>
                 <div class="form-group">
                     <label for="phone">Phone number</label>
                     <input type="phone" id="phone" class="form-control" formControlName="phone">
                 </div>
                 <div class="form-group">
-                    <label for="position">Position</label>
+                    <label for="position">Position (will appear next your name)</label>
                     <input type="text" id="position" class="form-control" formControlName="position">
                   </div>
                   <div class="form-group">
-                    <label for="address">Address</label>
-                    <input type="text" id="address" class="form-control" formControlName="address">
+                    
+                      <label for="dept">NASEY's promotion</label>
+                      <div class="row">
+                        <div class="col-8">
+                          <select id="dept" name="dept" class="form-control" formControlName="dept">
+                            <option value="">--Please choose your department--</option>
+                             <option value="gi">GI</option>
+                             <option value="gm">GM</option>
+                             <option value="gtel">GTEL</option>
+                             <option value="gc">GC</option>
+                             <option value="gind">GIND</option>
+                             <option value="gele">GELE</option>
+                           </select>
+                        </div>
+                        <div class="col-4">
+                          <input type="number" id="year" class="form-control" formControlName="year" placeholder="eg:2020"> 
+                        </div>
+                      
+                    </div>
                   </div>
-
-                <!--<div formArrayName="hobbies">
-                      <h3>Vos hobbies</h3>
-                      <div class="form-group" *ngFor="let hobbyControl of getHobbies().controls; let i = index">
-                      <input type="text" class="form-control" [formControlName]="i">
+                  <div class="form-group">
+                    <label for="bio">Bio</label>
+                    <input type="text" id="bio" class="form-control" formControlName="bio">
+                  </div>
+                  <div class="row text-center">
+                    <div class="col">
+                      <p>Professional informations</p>
+                    </div>
+                  </div>
+                  <div class="row my-2 vert" formArrayName="expertises">
+                      <div class="my-1">Expertise</div>
+                      <div class="form-group"  *ngFor="let expertiseControl of getExpertises().controls; let i = index">
+                          <input type="text" class="form-control" [placeholder]="getExpertises().value[i]" [formControlName]="i">
                       </div>
-                      <button type="button" class="btn btn-success" (click)="onAddHobby()">Ajouter un hobby</button>
-                </div> -->
+                      <button type="button" class="btn btn-success" (click)="onAddExpertise()">Add an expertise</button>
+                  </div>
+                <div class="row my-2 vert" formArrayName="educations">
+                    <div class="my-1">Education</div>
+                    <div class="form-group" *ngFor="let educationControl of getEducations().controls; let i = index">
+                        <input type="text" class="form-control" [placeholder]="getEducations().value[i]"  [formControlName] ="i">
+                    </div>
+                    <button type="button" class="btn btn-success" (click)="onAddEducation()">Add an education</button>
+                </div>
+                <div class="row my-2 vert" formArrayName="experiences">
+                    <div class="my-1">Experience</div>
+                    <div class="form-group" *ngFor="let experienceControl of getExperiences().controls; let i = index">
+                        <input type="text" class="form-control" [placeholder]="getExperiences().value[i]"  [formControlName]="i">
+                    </div>
+                    <button type="button" class="btn btn-success" (click)="onAddExperience()">Add an experience</button>
+                </div>
+                <div class="row my-2 vert" formArrayName="certifications">
+                  <div class="my-1">Certification</div>
+                  <div class="form-group" *ngFor="let certifControl of getCertifications().controls; let i = index">
+                      <input type="text" class="form-control" [placeholder]="getCertifications().value[i]"  [formControlName]="i">
+                  </div>
+                  <button type="button" class="btn btn-success" (click)="onAddCertification()">Add an certicatiom</button>
+              </div>
                 <div class="row d-flex justify-content-center">
                   <button type="submit" 
                   class=" btn--primary" 

@@ -26,15 +26,80 @@ export class ProfileFormComponent implements OnInit {
       username: [this.user.username],
       birth: [this.userProfile.dateOfBirth],
       gender: [this.userProfile.gender],
+      location: [this.userProfile.location],
       phone: [this.userProfile.phone],
       position: [this.userProfile.position],
-      address: [this.userProfile.address]
+      dept: [this.userProfile.dept],
+      year:[this.userProfile.year],
+      bio:[this.userProfile.bio],
+      expertises: this.formBuilder.array([]),
+      educations: this.formBuilder.array([]),
+      experiences: this.formBuilder.array([]),
+      certifications: this.formBuilder.array([])
     });
   }
+ 
+  //Getters
 
   get email(){
     return this.profileForm.get('email');
   }
+
+  getExpertises(): FormArray {
+    return this.profileForm.get('expertises') as FormArray;
+  }
+  getEducations(): FormArray{
+    return this.profileForm.get('educations') as FormArray;
+  }
+  getExperiences(): FormArray{
+    return this.profileForm.get('experiences') as FormArray;
+  }
+
+  getCertifications():FormArray{
+    return this.profileForm.get('certifications') as FormArray
+  }
+
+  onAddExpertise() {
+    const newExpertiseControl = this.formBuilder.control('expertise', Validators.required);
+    this.getExpertises().push(newExpertiseControl);
+  }
+  onAddEducation(){
+    const diploma = this.formBuilder.control('diploma',Validators.required)
+    const from = this.formBuilder.control('from',Validators.required)
+    const to = this.formBuilder.control('to',Validators.required)
+    const etablishment = this.formBuilder.control('etablishment',Validators.required)
+    const location = this.formBuilder.control('location',Validators.required)
+    this.getEducations().push(etablishment)
+    this.getEducations().push(diploma)
+    this.getEducations().push(location)
+    this.getEducations().push(from)
+    this.getEducations().push(to)
+  }
+
+  onAddExperience(){
+    const position = this.formBuilder.control('position',Validators.required)
+    const from = this.formBuilder.control('from',Validators.required)
+    const to = this.formBuilder.control('to',Validators.required)
+    const location = this.formBuilder.control('location',Validators.required)
+    const company = this.formBuilder.control('company',Validators.required)
+    const description = this.formBuilder.control('description(optional)')
+    this.getExperiences().push(position)
+    this.getExperiences().push(company)
+    this.getExperiences().push(location)
+    this.getExperiences().push(from)
+    this.getExperiences().push(to)
+    this.getExperiences().push(description)
+  }
+
+  onAddCertification(){
+    const certificationName = this.formBuilder.control("certification's name",Validators.required)
+    const deliveryDate = this.formBuilder.control('delivery date',Validators.required)
+    const etablishment = this.formBuilder.control('Organization',Validators.required)
+    this.getCertifications().push(certificationName)
+    this.getCertifications().push(deliveryDate)
+    this.getCertifications().push(etablishment)
+  }
+
 
   onSubmitForm() {
     const formValue = this.profileForm.value;
@@ -47,6 +112,12 @@ export class ProfileFormComponent implements OnInit {
     data["phone"] = formValue.phone;
     data["address"] = formValue.address;
     data["position"] = formValue.position;
+    data["expertises"] = formValue.expertise ? formValue['expertises'] : []
+    data["experiences"] = formValue.experience ? formValue['experiences'] : []
+    data["educations"] = formValue.education ? formValue['educations'] : []
+    data["certifications"] = formValue.certification ? formValue['certifications'] : []
+
+    console.log(formValue['expertises'])//to see if formarray works
 
     this.profileService.updateProfile(data, this.profileService.currentUserProfile.id).then(
       (response:any) => {

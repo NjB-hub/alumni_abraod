@@ -8,7 +8,7 @@
                 <div class="comment-author d-flex flex-column mb-0">
                     <span class=" comment-author-name">
                         <strong>{{ senderName }}</strong>
-                        <span *ngIf="isSameUser" class="bg--primary mx-1 px-1 text-white">Author</span>
+                        <span *ngIf="isAuthor" class="bg--primary mx-1 px-1 text-white">Author</span>
                     </span>
                    <span class="small text-secondary">{{position}}</span> 
                     
@@ -20,7 +20,7 @@
                     <div class="dropleft">
                         <button type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn c--primary d-none d-lg-inline p-0"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button>
                         <button type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn c--primary d-lg-none p-0 "><i class="fa fa-ellipsis-v" aria-hidden="true"></i></button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" *ngIf="isSameUser">
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" *ngIf="isAuthor">
                             <button class="dropdown-item d-flex align-items-center" (click)="onReplyComment()">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-right c--primary" viewBox="0 0 16 16"> <path fill-rule="evenodd" d="M1.5 1.5A.5.5 0 0 0 1 2v4.8a2.5 2.5 0 0 0 2.5 2.5h9.793l-3.347 3.346a.5.5 0 0 0 .708.708l4.2-4.2a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 8.3H3.5A1.5 1.5 0 0 1 2 6.8V2a.5.5 0 0 0-.5-.5z"/> </svg>
                                 <span class="ml-1">Reply</span>
@@ -32,7 +32,7 @@
                             <i class="fa fa-trash c--primary  mr-1" aria-hidden="true"></i>Delete this comment
                             </button>
                         </div>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" *ngIf="!isSameUser">
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" *ngIf="!isAuthor">
                             <button class="dropdown-item d-flex align-items-center" (click)="onReplyComment()">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-right c--primary" viewBox="0 0 16 16"> <path fill-rule="evenodd" d="M1.5 1.5A.5.5 0 0 0 1 2v4.8a2.5 2.5 0 0 0 2.5 2.5h9.793l-3.347 3.346a.5.5 0 0 0 .708.708l4.2-4.2a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 8.3H3.5A1.5 1.5 0 0 1 2 6.8V2a.5.5 0 0 0-.5-.5z"/> </svg>
                                 <span class="ml-1">Reply</span>
@@ -49,9 +49,9 @@
             </div>
             
         </div>
-        <div class="" *ngIf="hasReply">
+        <!-- <div class="" *ngIf="hasReply">
             <button class="btn btn-sm p-0 c--primary">See the replies (2)</button>
-        </div>
+        </div> -->
     </div>
        
 </div>

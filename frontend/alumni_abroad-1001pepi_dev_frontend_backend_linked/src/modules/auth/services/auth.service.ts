@@ -6,7 +6,7 @@ import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class AuthService {
-    isAdmin:boolean = false;
+    isAdmin:boolean = true;
     isAuth:boolean = false; //boolean for authentication state
     /*This is the service where authentication functons are defined */
 

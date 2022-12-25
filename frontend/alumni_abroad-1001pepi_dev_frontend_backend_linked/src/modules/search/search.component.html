@@ -2,14 +2,19 @@
     <div class="container">
         <div class="row">
             <div class="col col-lg-8">
-                <form class="form mt-3">
-                    <input class="form-control mr-2" type="search" placeholder="Search people, post, company, ..." aria-label="Search">
+                <form class="form mt-3" (ngSubmit)="onSubmit(f)" #f="ngForm">
+                    <input class="form-control mr-2" type="search" placeholder="Find people" name="input" aria-label="Search" ngModel>
+                    <select id="filter" name="filter" class="form-control" ngModel>
+                        <option value="">Find with</option>
+                         <option value="name">Name</option>
+                         <option value="certification">Certification</option>
+                         <option value="company">Company</option>
+                    </select>
                     <button class="btn btn--outline-primary " type="submit"><i class="fa fw fa-search"></i></button>
                 </form>
                 
-            </div>  
+            </div>
         </div>
-        
         <div class="row mt-5">
             <div class="col col-lg-8">
                 <p>Results search</p>

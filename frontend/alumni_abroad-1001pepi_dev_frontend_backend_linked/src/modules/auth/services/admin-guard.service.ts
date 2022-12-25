@@ -8,7 +8,7 @@ import { AuthService} from './auth.service';
 })
 
 export class AdminGuardService implements CanActivate {
-  adminMessage:string = '';
+  
   constructor(private authService: AuthService,
     private router: Router) {
       
@@ -17,7 +17,7 @@ export class AdminGuardService implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-      if(localStorage.getItem("token")){ //Condition pour verifier qu'on est un admin
+      if(this.authService.isAdmin){ //Condition pour verifier qu'on est un admin -- a changer
         return true;
       } else{
         this.router.navigate(['/not-found']);

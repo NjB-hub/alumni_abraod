@@ -68,6 +68,27 @@
                     <div class="mb-1 small text-danger"
                                *ngIf="signupForm.hasError('notSame')"><p>The inputs don't match !</p>
                     </div>
+                    <div class="form-group">
+                    
+                        <label for="dept">NASEY's promotion</label>
+                        <div class="row">
+                          <div class="col-8">
+                            <select id="dept" name="dept" class="form-control" formControlName="dept" >
+                              <option selected="true" value="">--Please choose your department--</option>
+                               <option value="gi">GI</option>
+                               <option value="gm">GM</option>
+                               <option value="gtel">GTEL</option>
+                               <option value="gc">GC</option>
+                               <option value="gind">GIND</option>
+                               <option value="gele">GELE</option>
+                             </select>
+                          </div>
+                          <div class="col-4">
+                            <input type="number" id="year" class="form-control" formControlName="year" placeholder="year"> 
+                          </div>
+                        
+                      </div>
+                    </div>
                     <div class="mb-2 form-check">
                         <input type="checkbox" class="form-check-input" id="check">
                         <label class="form-check-label" for="check">Check me out</label>

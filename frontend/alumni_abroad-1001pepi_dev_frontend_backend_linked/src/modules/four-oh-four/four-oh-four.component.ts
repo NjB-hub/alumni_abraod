@@ -13,7 +13,7 @@ export class FourOhFourComponent implements OnInit {
   ngOnInit(): void {
   }
   
-  backClicked() {
+  onBackClicked() {
     this._location.back();
   }
 }

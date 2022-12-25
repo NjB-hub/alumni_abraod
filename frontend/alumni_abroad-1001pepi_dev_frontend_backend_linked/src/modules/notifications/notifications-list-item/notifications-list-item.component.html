@@ -7,5 +7,17 @@
         </div>
         
     </div>
-    <a role="button" class="primary ml-3"><i class="fa fw fa-ellipsis-h"> </i></a>
+    
+    <div class="dropleft">
+        <button type="button" id="notificationMenuBtn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn c--primary d-none d-lg-inline p-0"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button>
+        <button type="button" id="notificationMenuBtn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn c--primary d-lg-none p-0 "><i class="fa fa-ellipsis-v" aria-hidden="true"></i></button>
+        <div class="dropdown-menu" aria-labelledby="notificationMenuBtn">
+            <button class="dropdown-item" (click)="onReadNotification()">
+            <i class="fas fa-check c--primary  mr-1" aria-hidden="true"></i>Mark as read
+            </button>
+            <button class="dropdown-item" (click)="onDeleteNotification()">
+            <i class="fa fa-trash c--primary  mr-1" aria-hidden="true"></i>Delete this notification
+            </button>
+        </div>
+    </div>
 </div>
