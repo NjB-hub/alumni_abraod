@@ -13,7 +13,7 @@ export class ProfileComponent implements OnInit {
   isSameUser:boolean = true
   user:any;
   userProfile:any;
-
+  expertises:string[] = ['leadership', 'communication', 'management']
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {

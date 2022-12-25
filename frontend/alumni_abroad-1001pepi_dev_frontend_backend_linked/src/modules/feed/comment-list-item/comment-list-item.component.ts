@@ -22,6 +22,7 @@ export class CommentListItemComponent implements OnInit {
   }
 
   onReplyComment():void{
+    this.commentService.onClearCommentContent()
     this.commentService.onReply('johndoe')
   }
 

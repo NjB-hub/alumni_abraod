@@ -10,9 +10,15 @@ export class CommentService {
   public replyInfo:string=''
 
   commentSubject = new Subject<string>();
+  headerSubject = new Subject<string>();
 
   emitCommentSubject() {
     this.commentSubject.next(this.replyInfo);
+
+  }
+
+  emitHeaderSubject(){
+    this.headerSubject.next(this.commentContent)
   }
 
   
@@ -23,8 +29,13 @@ export class CommentService {
     this.replyInfo = 'Replying to @'.concat(receiver)
     this.commentContent = '@'.concat(receiver);
     this.emitCommentSubject()
+    this.emitHeaderSubject()
   }
-  onClear(): void{
+  onClearReplyInfo(): void{
     this.commentSubject.next('')
+  }
+
+  onClearCommentContent():void{
+    this.headerSubject.next('')
   }
 }

@@ -15,9 +15,12 @@ export class CommentListComponent implements OnInit,OnDestroy {
   isCommentsVisible:boolean = false;
   isCommentHasReplies:boolean = true;
   replyInfo:string = '';
-
+  commentContent:string = '';
   falseVar:boolean = false;
   commentSubscription: Subscription;
+  commentHeaderSubscription:Subscription
+
+
   constructor(private commentService: CommentService) { }
 
   comments:any[] = [
@@ -34,6 +37,12 @@ export class CommentListComponent implements OnInit,OnDestroy {
     this.commentSubscription = this.commentService.commentSubject.subscribe(
       (replyInfo:string) => {
         this.replyInfo = replyInfo
+      }
+    )
+
+    this.commentHeaderSubscription = this.commentService.headerSubject.subscribe(
+      (header:string) => {
+        this.commentContent = header
       }
     )
   }
@@ -56,6 +65,7 @@ export class CommentListComponent implements OnInit,OnDestroy {
 
   ngOnDestroy():void{
     this.commentSubscription.unsubscribe()
+    this.commentHeaderSubscription.unsubscribe()
   }
 
 }

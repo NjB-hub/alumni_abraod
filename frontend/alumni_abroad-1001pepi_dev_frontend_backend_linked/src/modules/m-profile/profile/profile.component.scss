@@ -18,6 +18,9 @@
         .header-title{
             display: flex;
             flex-direction: column;
+            .position{
+                text-transform: capitalize;
+            }
         }
         .name{
             font-size: larger
@@ -31,4 +34,6 @@
 
 .bio{
     border-bottom: .20em $c-primary solid;
+    border-left: .20em $c-primary solid;
+    padding: .1em;
 }

@@ -58,11 +58,13 @@ export class CvFormComponent implements OnInit {
     const to = this.formBuilder.control('to',Validators.required)
     const location = this.formBuilder.control('location',Validators.required)
     const company = this.formBuilder.control('company',Validators.required)
+    const description = this.formBuilder.control('description(optional)')
     this.getExperiences().push(position)
     this.getExperiences().push(company)
     this.getExperiences().push(location)
     this.getExperiences().push(from)
     this.getExperiences().push(to)
+    this.getExperiences().push(description)
   }
   
 

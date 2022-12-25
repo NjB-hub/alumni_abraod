@@ -67,4 +67,22 @@ export class FeedComponent implements OnInit, OnDestroy {
    
   }
 
+  onNoSort():void{
+
+  }
+  onSortEvent():void{
+
+  }
+  onSortOffer(): void{
+
+  }
+
+  onSortUpdate():void{
+
+  }
+
+  onSortSaved(): void{
+
+  }
+
 }

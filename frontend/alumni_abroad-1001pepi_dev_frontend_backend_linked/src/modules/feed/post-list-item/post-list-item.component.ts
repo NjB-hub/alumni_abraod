@@ -134,7 +134,7 @@ export class PostListItemComponent implements OnInit {
 
   onCommentPost():void{
     // this.commentInput.nativeElement.focus();
-    this.commentService.onClear();
+    this.commentService.onClearReplyInfo();
   }
   // ngAfterViewInit():void{
   //   this.commentInput.nativeElement.focus();

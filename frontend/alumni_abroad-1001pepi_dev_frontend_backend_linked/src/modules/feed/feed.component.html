@@ -26,11 +26,12 @@
     <div class="col sort">
       <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button"><span>Sort by</span></a>
       <div class="dropdown-menu bg-light">
-        <a class="dropdown-item">All</a>
-        <a class="dropdown-item" >Event</a>
-        <a class="dropdown-item" >Offer</a>
-        <a class="dropdown-item" >Update</a>
-        
+        <a class="dropdown-item" (click)="onNoSort()">All</a>
+        <a class="dropdown-item" (click)="onSortEvent()">Event</a>
+        <a class="dropdown-item" (click)="onSortOffer()">Offer</a>
+        <a class="dropdown-item" (click)="onSortUpdate()">Update</a>
+        <a class="dropdown-item" (click)="onSortSaved()">Saved posts</a>
+
       </div>
     </div>
     <div class="col-lg-2 "></div>
